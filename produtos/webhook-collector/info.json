@@ -1,0 +1,25 @@
+{
+  "id": "webhook-collector",
+  "nome": "Webhook Collector Avançado",
+  "categoria": "APIs",
+  "descricao": "Colete, filtre, transforme e encaminhe webhooks de qualquer plataforma com retry automático, logs detalhados e dashboard em tempo real.",
+  "preco": "34.90",
+  "imagem": "thumb.png",
+  "link": "https://pay.kiwify.com.br/exemplo10",
+  "destaque": false,
+  "lancamento": false,
+  "popular": false,
+  "emAlta": false,
+  "avaliacao": 4.6,
+  "avaliacoes": 88,
+  "recursos": [
+    "Coleta de webhooks de qualquer fonte",
+    "Filtros e transformações avançadas",
+    "Retry automático com backoff",
+    "Logs em tempo real",
+    "Dashboard de monitoramento",
+    "Alertas de falha por e-mail",
+    "Histórico completo de eventos",
+    "API para gestão programática"
+  ]
+}

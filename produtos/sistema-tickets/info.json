@@ -1,0 +1,25 @@
+{
+  "id": "sistema-tickets",
+  "nome": "Sistema de Tickets Completo",
+  "categoria": "Painéis",
+  "descricao": "Sistema profissional de suporte com tickets, base de conhecimento, SLA automático, relatórios e integração com Discord e WhatsApp.",
+  "preco": "69.90",
+  "imagem": "thumb.png",
+  "link": "https://pay.kiwify.com.br/exemplo8",
+  "destaque": false,
+  "lancamento": true,
+  "popular": false,
+  "emAlta": false,
+  "avaliacao": 4.6,
+  "avaliacoes": 54,
+  "recursos": [
+    "Sistema de tickets por e-mail e chat",
+    "SLA automático com alertas",
+    "Base de conhecimento integrada",
+    "Integração Discord e WhatsApp",
+    "Relatórios de performance",
+    "Avaliação de atendimento",
+    "Múltiplos departamentos",
+    "Macros e respostas rápidas"
+  ]
+}

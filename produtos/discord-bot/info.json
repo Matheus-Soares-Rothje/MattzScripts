@@ -1,0 +1,25 @@
+{
+  "id": "discord-bot",
+  "nome": "Bot Avançado Discord.js",
+  "categoria": "Discord",
+  "descricao": "Sistema completo para servidores Discord com moderação, tickets, música, economia e muito mais. Inclui painel web de configuração.",
+  "preco": "59.90",
+  "imagem": "thumb.png",
+  "link": "https://pay.kiwify.com.br/exemplo1",
+  "destaque": true,
+  "lancamento": false,
+  "popular": true,
+  "emAlta": false,
+  "avaliacao": 4.9,
+  "avaliacoes": 248,
+  "recursos": [
+    "Moderação automática com anti-raid",
+    "Sistema de tickets com painel web",
+    "Música de alta qualidade com Lavalink",
+    "Sistema de economia e loja virtual",
+    "Logs completos de auditoria",
+    "Comandos slash modernos",
+    "Suporte a múltiplos idiomas",
+    "Dashboard web responsivo"
+  ]
+}

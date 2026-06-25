@@ -1,0 +1,25 @@
+{
+  "id": "api-rest",
+  "nome": "API Rest Full Completa",
+  "categoria": "APIs",
+  "descricao": "API REST completa com autenticação JWT, rate limiting, documentação Swagger, cache Redis e suporte a webhooks.",
+  "preco": "44.90",
+  "imagem": "thumb.png",
+  "link": "https://pay.kiwify.com.br/exemplo5",
+  "destaque": false,
+  "lancamento": true,
+  "popular": false,
+  "emAlta": false,
+  "avaliacao": 4.8,
+  "avaliacoes": 91,
+  "recursos": [
+    "Autenticação JWT com refresh tokens",
+    "Rate limiting por usuário e IP",
+    "Documentação Swagger automática",
+    "Cache com Redis integrado",
+    "Webhooks configuráveis",
+    "Logs estruturados com Winston",
+    "Testes unitários incluídos",
+    "Deploy Docker ready"
+  ]
+}

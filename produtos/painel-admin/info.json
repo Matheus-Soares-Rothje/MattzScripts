@@ -1,0 +1,25 @@
+{
+  "id": "painel-admin",
+  "nome": "Painel de Revenda Completo",
+  "categoria": "Painéis",
+  "descricao": "Sistema completo para revenda de produtos digitais com gestão de clientes, pagamentos automáticos, relatórios financeiros e muito mais.",
+  "preco": "79.90",
+  "imagem": "thumb.png",
+  "link": "https://pay.kiwify.com.br/exemplo3",
+  "destaque": true,
+  "lancamento": false,
+  "popular": true,
+  "emAlta": false,
+  "avaliacao": 4.7,
+  "avaliacoes": 89,
+  "recursos": [
+    "Gestão completa de clientes",
+    "Pagamentos via Pix, cartão e boleto",
+    "Relatórios financeiros detalhados",
+    "Sistema de cupons e descontos",
+    "Painel de afiliados integrado",
+    "Notificações automáticas por e-mail",
+    "API para integrações externas",
+    "Suporte a múltiplos vendedores"
+  ]
+}

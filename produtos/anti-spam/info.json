@@ -1,0 +1,25 @@
+{
+  "id": "anti-spam",
+  "nome": "Anti Spam Avançado",
+  "categoria": "Bots",
+  "descricao": "Sistema anti-spam avançado com IA para detecção de padrões, listas negras automáticas e proteção em tempo real para grupos e servidores.",
+  "preco": "24.90",
+  "imagem": "thumb.png",
+  "link": "https://pay.kiwify.com.br/exemplo6",
+  "destaque": false,
+  "lancamento": true,
+  "popular": false,
+  "emAlta": false,
+  "avaliacao": 4.6,
+  "avaliacoes": 68,
+  "recursos": [
+    "Detecção de spam com IA",
+    "Listas negras automáticas",
+    "Proteção contra flood e raid",
+    "Filtros de palavras personalizáveis",
+    "Alertas em tempo real",
+    "Relatórios de ameaças",
+    "Integração multi-plataforma",
+    "Configuração via dashboard"
+  ]
+}

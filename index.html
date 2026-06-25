@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matt'z Scripts – Scripts que aceleram seus projetos</title>
+  <meta name="description" content="Soluções prontas para Discord, WhatsApp, APIs, automações e muito mais. Scripts profissionais para desenvolvedores." />
+  <meta property="og:title" content="Matt'z Scripts – Scripts profissionais" />
+  <meta property="og:description" content="Compre scripts prontos para Discord, WhatsApp, Bots, APIs e automações." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236D4AFF'/><text y='24' x='6' font-size='20' font-weight='900' fill='white' font-family='Arial'>M</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <button class="icon-btn hamburger" id="hamburger-btn" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">M</div>
+      <span class="logo-text">Matt'z <span>scripts</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Início</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="catalogo.html?filter=popular">Mais Vendidos</a></li>
+      <li><a href="catalogo.html?filter=lancamento">Lançamentos</a></li>
+      <li><a href="#suporte">Suporte</a></li>
+    </ul>
+    <div class="navbar-search">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="navbar-search" placeholder="Buscar scripts..." autocomplete="off" />
+      </div>
+    </div>
+    <div class="navbar-actions">
+      <button class="icon-btn" id="theme-toggle" title="Alternar tema">☀️</button>
+      <button class="icon-btn" title="Conta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="navbar-logo">
+          <div class="logo-icon">M</div>
+          <span class="logo-text">Matt'z <span>scripts</span></span>
+        </a>
+        <button class="mobile-close-btn" id="mobile-menu-close">✕</button>
+      </div>
+      <div class="sidebar-section-title">Navegação</div>
+      <a href="index.html" class="sidebar-item active">🏠 Início</a>
+      <a href="catalogo.html" class="sidebar-item">📦 Catálogo</a>
+      <a href="catalogo.html?filter=popular" class="sidebar-item">🔥 Mais Vendidos</a>
+      <a href="catalogo.html?filter=lancamento" class="sidebar-item">🚀 Lançamentos</a>
+      <div class="sidebar-section-title" style="margin-top:16px">Categorias</div>
+      <a href="catalogo.html?cat=Discord" class="sidebar-item">🎮 Discord</a>
+      <a href="catalogo.html?cat=WhatsApp" class="sidebar-item">💬 WhatsApp</a>
+      <a href="catalogo.html?cat=Bots" class="sidebar-item">🤖 Bots</a>
+      <a href="catalogo.html?cat=APIs" class="sidebar-item">⚡ APIs</a>
+      <a href="catalogo.html?cat=Automação" class="sidebar-item">⚙️ Automação</a>
+      <a href="catalogo.html?cat=Painéis" class="sidebar-item">📊 Painéis</a>
+      <a href="catalogo.html?cat=Jogos" class="sidebar-item">🕹️ Jogos</a>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="main-content">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-section-title">Categorias</div>
+        <a href="catalogo.html" class="sidebar-item active">
+          <span class="cat-icon">⊞</span> Todos os Scripts
+        </a>
+        <a href="catalogo.html?cat=Discord" class="sidebar-item">🎮 Discord</a>
+        <a href="catalogo.html?cat=WhatsApp" class="sidebar-item">💬 WhatsApp</a>
+        <a href="catalogo.html?cat=Bots" class="sidebar-item">🤖 Bots</a>
+        <a href="catalogo.html?cat=Painéis" class="sidebar-item">📊 Painéis</a>
+        <a href="catalogo.html?cat=Web" class="sidebar-item">🌐 Websites</a>
+        <a href="catalogo.html?cat=Jogos" class="sidebar-item">🕹️ Jogos</a>
+        <a href="catalogo.html?cat=Automação" class="sidebar-item">⚙️ Automação</a>
+        <a href="catalogo.html?cat=Jogos" class="sidebar-item">🕹️ Jogos</a>
+        <a href="catalogo.html?cat=Mobile" class="sidebar-item">📱 Mobile</a>
+        <a href="catalogo.html?cat=IA" class="sidebar-item">🧠 Inteligência Artificial</a>
+        <a href="catalogo.html?cat=APIs" class="sidebar-item">⚡ Banco de Dados</a>
+        <a href="catalogo.html?cat=Outros" class="sidebar-item">📦 Outros</a>
+
+        <div class="sidebar-cta">
+          <h4>Venda seus scripts na Matt'z scripts</h4>
+          <p>Alcance milhares de clientes e aumente suas vendas.</p>
+          <a href="#" class="btn-cta">Quero vender ↗</a>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="content-area">
+
+        <!-- HERO -->
+        <section class="hero reveal">
+          <div class="hero-bg"></div>
+          <div class="hero-grid"></div>
+          <div class="hero-content">
+            <div class="hero-eyebrow">Código que transforma</div>
+            <h1 class="hero-title">
+              Ideias em código.<br/>
+              Soluções para o <span class="highlight">futuro.</span>
+            </h1>
+            <p class="hero-subtitle">
+              Scripts prontos para elevar seus projetos ao próximo nível.
+            </p>
+            <div class="hero-btns">
+              <a href="catalogo.html" class="btn-primary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                Ver catálogo
+              </a>
+              <a href="catalogo.html?filter=popular" class="btn-secondary">
+                Mais vendidos 🔥
+              </a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-icons">
+              <div class="hero-icon-float">🎮</div>
+              <div class="hero-icon-float">💬</div>
+              <div class="hero-icon-float">⚙️</div>
+              <div class="hero-icon-float">🤖</div>
+              <div class="hero-icon-float">&lt;/&gt;</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="benefits-bar reveal">
+          <div class="benefit-item">
+            <div class="benefit-icon">🛡️</div>
+            <div class="benefit-text">
+              <h4>Compra segura</h4>
+              <p>Seus dados protegidos do início ao fim.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🚀</div>
+            <div class="benefit-text">
+              <h4>Acesso imediato</h4>
+              <p>Receba seu script automaticamente.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">&lt;/&gt;</div>
+            <div class="benefit-text">
+              <h4>Qualidade garantida</h4>
+              <p>Scripts testados e validados.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🎧</div>
+            <div class="benefit-text">
+              <h4>Suporte dedicado</h4>
+              <p>Nossa equipe está pronta para te ajudar.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- DESTAQUES -->
+        <section class="reveal">
+          <div class="section-header">
+            <div>
+              <h2>Destaques</h2>
+              <p>Os scripts mais populares da semana.</p>
+            </div>
+            <a href="catalogo.html?filter=destaque" class="view-all">Ver todos →</a>
+          </div>
+          <div class="carousel-container">
+            <button class="carousel-btn carousel-btn-prev" id="dest-prev">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+            </button>
+            <div class="carousel-track" id="destaques-track">
+              <!-- Skeleton -->
+              <div class="skeleton-card" style="flex:0 0 220px"><?= skeleton ?></div>
+              <div class="skeleton-card" style="flex:0 0 220px"><?= skeleton ?></div>
+              <div class="skeleton-card" style="flex:0 0 220px"><?= skeleton ?></div>
+              <div class="skeleton-card" style="flex:0 0 220px"><?= skeleton ?></div>
+            </div>
+            <button class="carousel-btn carousel-btn-next" id="dest-next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- LANÇAMENTOS -->
+        <section class="reveal">
+          <div class="section-header">
+            <div>
+              <h2>Novos Lançamentos</h2>
+              <p>Scripts novos e atualizados regularmente.</p>
+            </div>
+            <a href="catalogo.html?filter=lancamento" class="view-all">Ver todos →</a>
+          </div>
+          <div class="products-grid" id="lancamentos-grid">
+            <!-- Skeleton -->
+            <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+            <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+            <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+            <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+            <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+          </div>
+        </section>
+
+        <!-- MAIS VENDIDOS -->
+        <section class="reveal">
+          <div class="section-header">
+            <div>
+              <h2>Mais Vendidos</h2>
+              <p>Os favoritos da nossa comunidade.</p>
+            </div>
+            <a href="catalogo.html?filter=popular" class="view-all">Ver todos →</a>
+          </div>
+          <div class="bestsellers-list" id="bestsellers-list">
+            <!-- skeletons -->
+          </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter-section reveal" id="suporte">
+          <div class="newsletter-icon">✉️</div>
+          <div class="newsletter-text">
+            <h3>Fique por dentro das novidades</h3>
+            <p>Receba lançamentos, promoções e conteúdos exclusivos.</p>
+          </div>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Seu melhor e-mail" required />
+            <button type="submit" class="btn-primary">Inscrever-se</button>
+          </form>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <div class="logo-wrap">
+                <div class="logo-icon">M</div>
+                <span class="logo-text">Matt'z <span style="color:var(--purple)">scripts</span></span>
+              </div>
+              <p>O seu catálogo de scripts prontos para transformar projetos em soluções incríveis.</p>
+              <div class="social-links">
+                <a href="#" class="social-link" title="Discord">💬</a>
+                <a href="#" class="social-link" title="Instagram">📸</a>
+                <a href="#" class="social-link" title="Twitter">🐦</a>
+                <a href="#" class="social-link" title="GitHub">🐙</a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h4>Navegação</h4>
+              <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="catalogo.html?filter=popular">Mais Vendidos</a></li>
+                <li><a href="catalogo.html?filter=lancamento">Lançamentos</a></li>
+                <li><a href="#suporte">Suporte</a></li>
+                <li><a href="catalogo.html">Ver todos</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Categorias</h4>
+              <ul>
+                <li><a href="catalogo.html?cat=Discord">Discord</a></li>
+                <li><a href="catalogo.html?cat=WhatsApp">WhatsApp</a></li>
+                <li><a href="catalogo.html?cat=Bots">Bots</a></li>
+                <li><a href="catalogo.html?cat=Painéis">Painéis</a></li>
+                <li><a href="catalogo.html?cat=Automação">Automação</a></li>
+                <li><a href="catalogo.html?cat=Outros">Utilitários</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Informações</h4>
+              <ul>
+                <li><a href="#">Como funciona</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Garantia</a></li>
+                <li><a href="#">Suporte</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Suporte</h4>
+              <ul>
+                <li><a href="#">Central de Ajuda</a></li>
+                <li><a href="#">Abrir Ticket</a></li>
+                <li><a href="#">Discord Oficial</a></li>
+                <li><a href="#">E-mail</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>© 2024 Matt'z Scripts. Todos os direitos reservados.</p>
+            <p style="color:var(--text-muted);font-size:12px">Feito com 💜 para desenvolvedores</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="mobile-bottom-nav">
+    <div class="mobile-nav-items">
+      <a href="index.html" class="mobile-nav-item active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        Início
+      </a>
+      <a href="catalogo.html" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Catálogo
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Favoritos
+      </a>
+      <a href="#suporte" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Suporte
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Conta
+      </a>
+    </div>
+  </nav>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const products = await ProductLoader.loadAll();
+
+      // Destaques carousel
+      const destTrack = document.getElementById('destaques-track');
+      const destaques = products.filter(p => p.destaque || p.popular || p.emAlta);
+      if (destTrack) {
+        destTrack.innerHTML = destaques.map(p => buildProductCard(p)).join('');
+        setupCarousel('destaques-track', 'dest-prev', 'dest-next');
+      }
+
+      // Lançamentos grid
+      const lancGrid = document.getElementById('lancamentos-grid');
+      const lancamentos = products.filter(p => p.lancamento);
+      if (lancGrid) {
+        lancGrid.innerHTML = lancamentos.length
+          ? lancamentos.map(p => buildProductCard(p)).join('')
+          : products.slice(0, 5).map(p => buildProductCard(p)).join('');
+      }
+
+      // Bestsellers
+      const bsList = document.getElementById('bestsellers-list');
+      if (bsList) {
+        const sorted = [...products].sort((a, b) => (b.avaliacoes || 0) - (a.avaliacoes || 0)).slice(0, 5);
+        bsList.innerHTML = sorted.map((p, i) => {
+          const price = parseFloat(p.preco || 0).toFixed(2).replace('.', ',');
+          return `
+            <a href="produto.html?id=${p.id}" class="bestseller-item fade-in">
+              <div class="bs-rank">${i + 1}</div>
+              <div class="bs-thumb">${getCatIcon(p.categoria)}</div>
+              <div class="bs-info">
+                <div class="bs-name">${p.nome}</div>
+                <div class="bs-cat">${p.categoria}</div>
+              </div>
+              <div class="bs-meta">
+                <div class="bs-price">R$ ${price}</div>
+                <div class="bs-rating">★ ${p.avaliacao}</div>
+              </div>
+            </a>
+          `;
+        }).join('');
+      }
+
+      // Navbar search
+      const navSearch = document.getElementById('navbar-search');
+      if (navSearch) {
+        navSearch.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && navSearch.value.trim()) {
+            window.location.href = `catalogo.html?q=${encodeURIComponent(navSearch.value.trim())}`;
+          }
+        });
+      }
+
+      setupReveal();
+    });
+  </script>
+</body>
+</html>

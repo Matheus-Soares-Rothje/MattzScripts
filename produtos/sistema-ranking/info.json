@@ -1,0 +1,25 @@
+{
+  "id": "sistema-ranking",
+  "nome": "Sistema de Ranking para Games",
+  "categoria": "Jogos",
+  "descricao": "Sistema completo de ranking e leaderboard para jogos online com ELO, matchmaking, estatísticas detalhadas e integração Discord.",
+  "preco": "38.90",
+  "imagem": "thumb.png",
+  "link": "https://pay.kiwify.com.br/exemplo9",
+  "destaque": false,
+  "lancamento": true,
+  "popular": false,
+  "emAlta": false,
+  "avaliacao": 4.7,
+  "avaliacoes": 53,
+  "recursos": [
+    "Sistema ELO completo",
+    "Matchmaking por skill",
+    "Estatísticas detalhadas por jogador",
+    "Integração com bot Discord",
+    "Torneios automatizados",
+    "Histórico de partidas",
+    "API para integração com jogos",
+    "Painel de administração"
+  ]
+}

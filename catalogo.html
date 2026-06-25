@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo – Matt'z Scripts</title>
+  <meta name="description" content="Explore todos os scripts disponíveis: Discord, WhatsApp, Bots, APIs, automações e muito mais." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236D4AFF'/><text y='24' x='6' font-size='20' font-weight='900' fill='white' font-family='Arial'>M</text></svg>" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <button class="icon-btn hamburger" id="hamburger-btn" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">M</div>
+      <span class="logo-text">Matt'z <span>scripts</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="catalogo.html" class="active">Catálogo</a></li>
+      <li><a href="catalogo.html?filter=popular">Mais Vendidos</a></li>
+      <li><a href="catalogo.html?filter=lancamento">Lançamentos</a></li>
+      <li><a href="index.html#suporte">Suporte</a></li>
+    </ul>
+    <div class="navbar-search">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="navbar-search" placeholder="Buscar scripts..." autocomplete="off" />
+      </div>
+    </div>
+    <div class="navbar-actions">
+      <button class="icon-btn" id="theme-toggle" title="Alternar tema">☀️</button>
+      <button class="icon-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="navbar-logo">
+          <div class="logo-icon">M</div>
+          <span class="logo-text">Matt'z <span>scripts</span></span>
+        </a>
+        <button class="mobile-close-btn" id="mobile-menu-close">✕</button>
+      </div>
+      <div class="sidebar-section-title">Categorias</div>
+      <a href="catalogo.html" class="sidebar-item" data-cat="">⊞ Todos os Scripts</a>
+      <a href="catalogo.html?cat=Discord" class="sidebar-item" data-cat="Discord">🎮 Discord</a>
+      <a href="catalogo.html?cat=WhatsApp" class="sidebar-item" data-cat="WhatsApp">💬 WhatsApp</a>
+      <a href="catalogo.html?cat=Bots" class="sidebar-item" data-cat="Bots">🤖 Bots</a>
+      <a href="catalogo.html?cat=APIs" class="sidebar-item" data-cat="APIs">⚡ APIs</a>
+      <a href="catalogo.html?cat=Automação" class="sidebar-item" data-cat="Automação">⚙️ Automação</a>
+      <a href="catalogo.html?cat=Painéis" class="sidebar-item" data-cat="Painéis">📊 Painéis</a>
+      <a href="catalogo.html?cat=Jogos" class="sidebar-item" data-cat="Jogos">🕹️ Jogos</a>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="main-content">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-section-title">Categorias</div>
+        <a href="#" class="sidebar-item active" data-cat="">
+          <span class="cat-icon">⊞</span> Todos os Scripts
+        </a>
+        <a href="#" class="sidebar-item" data-cat="Discord">🎮 Discord</a>
+        <a href="#" class="sidebar-item" data-cat="WhatsApp">💬 WhatsApp</a>
+        <a href="#" class="sidebar-item" data-cat="Bots">🤖 Bots</a>
+        <a href="#" class="sidebar-item" data-cat="APIs">⚡ APIs</a>
+        <a href="#" class="sidebar-item" data-cat="Painéis">📊 Painéis</a>
+        <a href="#" class="sidebar-item" data-cat="Web">🌐 Websites</a>
+        <a href="#" class="sidebar-item" data-cat="Jogos">🕹️ Jogos</a>
+        <a href="#" class="sidebar-item" data-cat="Automação">⚙️ Automação</a>
+        <a href="#" class="sidebar-item" data-cat="IA">🧠 Inteligência Artificial</a>
+        <a href="#" class="sidebar-item" data-cat="Mobile">📱 Mobile</a>
+        <a href="#" class="sidebar-item" data-cat="Utilitários">🔧 Utilitários</a>
+        <a href="#" class="sidebar-item" data-cat="Outros">📦 Outros</a>
+
+        <div class="sidebar-cta">
+          <h4>Venda seus scripts na Matt'z scripts</h4>
+          <p>Alcance milhares de clientes e aumente suas vendas.</p>
+          <a href="#" class="btn-cta">Quero vender ↗</a>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="content-area">
+        <!-- CATALOG FILTERS -->
+        <div class="catalog-filters">
+          <div class="filter-search search-box" style="flex:1;max-width:320px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="catalog-search" placeholder="Buscar scripts..." autocomplete="off" />
+          </div>
+          <select class="filter-select" id="sort-select">
+            <option value="">Ordenar por</option>
+            <option value="price-asc">Menor preço</option>
+            <option value="price-desc">Maior preço</option>
+            <option value="rating">Melhor avaliação</option>
+            <option value="popular">Mais avaliados</option>
+          </select>
+        </div>
+
+        <!-- CATEGORY CHIPS -->
+        <div class="filter-chips">
+          <button class="chip active" data-cat="">Todos</button>
+          <button class="chip" data-cat="Discord">🎮 Discord</button>
+          <button class="chip" data-cat="WhatsApp">💬 WhatsApp</button>
+          <button class="chip" data-cat="Bots">🤖 Bots</button>
+          <button class="chip" data-cat="APIs">⚡ APIs</button>
+          <button class="chip" data-cat="Automação">⚙️ Automação</button>
+          <button class="chip" data-cat="Painéis">📊 Painéis</button>
+          <button class="chip" data-cat="IA">🧠 IA</button>
+          <button class="chip" data-cat="Jogos">🕹️ Jogos</button>
+          <button class="chip" data-cat="Outros">📦 Outros</button>
+        </div>
+
+        <!-- RESULTS COUNT -->
+        <div style="margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;">
+          <span id="results-count" style="font-size:13px;color:var(--text-muted)"></span>
+        </div>
+
+        <!-- PRODUCTS GRID -->
+        <div class="products-grid" id="catalog-grid">
+          <!-- Skeletons -->
+          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
+        </div>
+
+        <footer style="margin-top:40px;border-top:1px solid var(--border-light);padding-top:20px;">
+          <div class="footer-bottom">
+            <p>© 2024 Matt'z Scripts. Todos os direitos reservados.</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="mobile-bottom-nav">
+    <div class="mobile-nav-items">
+      <a href="index.html" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        Início
+      </a>
+      <a href="catalogo.html" class="mobile-nav-item active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Catálogo
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Favoritos
+      </a>
+      <a href="index.html#suporte" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Suporte
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Conta
+      </a>
+    </div>
+  </nav>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    let allProducts = [];
+    let activeCategory = '';
+    let activeFilter = '';
+    let searchQuery = '';
+    let sortValue = '';
+
+    function applyFilters() {
+      let filtered = [...allProducts];
+
+      if (activeCategory) {
+        filtered = filtered.filter(p => p.categoria === activeCategory);
+      }
+      if (activeFilter === 'destaque') filtered = filtered.filter(p => p.destaque);
+      if (activeFilter === 'lancamento') filtered = filtered.filter(p => p.lancamento);
+      if (activeFilter === 'popular') filtered = filtered.filter(p => p.popular || p.avaliacao >= 4.7);
+      if (activeFilter === 'alta') filtered = filtered.filter(p => p.emAlta);
+
+      if (searchQuery) {
+        filtered = filtered.filter(p => matchSearch(p, searchQuery));
+      }
+
+      if (sortValue === 'price-asc') filtered.sort((a, b) => parseFloat(a.preco) - parseFloat(b.preco));
+      if (sortValue === 'price-desc') filtered.sort((a, b) => parseFloat(b.preco) - parseFloat(a.preco));
+      if (sortValue === 'rating') filtered.sort((a, b) => (b.avaliacao || 0) - (a.avaliacao || 0));
+      if (sortValue === 'popular') filtered.sort((a, b) => (b.avaliacoes || 0) - (a.avaliacoes || 0));
+
+      const grid = document.getElementById('catalog-grid');
+      const count = document.getElementById('results-count');
+
+      if (count) count.textContent = `${filtered.length} script${filtered.length !== 1 ? 's' : ''} encontrado${filtered.length !== 1 ? 's' : ''}`;
+
+      if (grid) {
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+            <div class="empty-state" style="grid-column:1/-1">
+              <div class="empty-icon">🔍</div>
+              <h3>Nenhum resultado encontrado</h3>
+              <p>Tente outros termos ou categorias.</p>
+            </div>
+          `;
+        } else {
+          grid.innerHTML = filtered.map(p => buildProductCard(p)).join('');
+        }
+      }
+    }
+
+    function setActiveChip(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.chip').forEach(c => {
+        c.classList.toggle('active', c.dataset.cat === cat);
+      });
+      document.querySelectorAll('.sidebar-item[data-cat]').forEach(s => {
+        s.classList.toggle('active', s.dataset.cat === cat);
+      });
+      applyFilters();
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Read URL params
+      const params = new URLSearchParams(location.search);
+      const urlCat = params.get('cat') || '';
+      const urlFilter = params.get('filter') || '';
+      const urlQ = params.get('q') || '';
+
+      activeCategory = urlCat;
+      activeFilter = urlFilter;
+      searchQuery = urlQ;
+
+      if (urlQ) {
+        const si = document.getElementById('catalog-search');
+        if (si) si.value = urlQ;
+      }
+
+      allProducts = await ProductLoader.loadAll();
+
+      // Set chip active
+      document.querySelectorAll('.chip').forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.cat === activeCategory);
+        chip.addEventListener('click', () => {
+          activeFilter = '';
+          setActiveChip(chip.dataset.cat);
+        });
+      });
+
+      document.querySelectorAll('.sidebar-item[data-cat]').forEach(s => {
+        s.classList.toggle('active', s.dataset.cat === activeCategory);
+        s.addEventListener('click', (e) => {
+          e.preventDefault();
+          activeFilter = '';
+          setActiveChip(s.dataset.cat);
+        });
+      });
+
+      const searchInput = document.getElementById('catalog-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          searchQuery = searchInput.value.trim();
+          applyFilters();
+        });
+      }
+
+      const navSearch = document.getElementById('navbar-search');
+      if (navSearch) {
+        if (urlQ) navSearch.value = urlQ;
+        navSearch.addEventListener('input', () => {
+          searchQuery = navSearch.value.trim();
+          if (searchInput) searchInput.value = searchQuery;
+          applyFilters();
+        });
+      }
+
+      const sortSelect = document.getElementById('sort-select');
+      if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+          sortValue = sortSelect.value;
+          applyFilters();
+        });
+      }
+
+      applyFilters();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "id": "telegram-bot",
+  "nome": "ChatGPT Telegram Bot Integrado",
+  "categoria": "Bots",
+  "descricao": "Bot Telegram com IA ChatGPT integrada, geração de imagens DALL-E, moderação avançada e sistema de assinaturas.",
+  "preco": "39.90",
+  "imagem": "thumb.png",
+  "link": "https://pay.kiwify.com.br/exemplo4",
+  "destaque": true,
+  "lancamento": false,
+  "popular": false,
+  "emAlta": true,
+  "avaliacao": 4.9,
+  "avaliacoes": 176,
+  "recursos": [
+    "Integração nativa com ChatGPT 4",
+    "Geração de imagens com DALL-E 3",
+    "Moderação automática de grupos",
+    "Sistema de assinaturas e pagamentos",
+    "Respostas de voz com TTS",
+    "Tradução automática de mensagens",
+    "Histórico de conversas por usuário",
+    "Dashboard de administração"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "leitor-planilhas",
+  "nome": "Leitor de Planilhas Automatizado",
+  "categoria": "Automação",
+  "descricao": "Automatize a leitura e processamento de planilhas Excel e Google Sheets com exportação para múltiplos formatos e integração via API.",
+  "preco": "29.90",
+  "imagem": "thumb.png",
+  "link": "https://pay.kiwify.com.br/exemplo7",
+  "destaque": false,
+  "lancamento": true,
+  "popular": false,
+  "emAlta": false,
+  "avaliacao": 4.6,
+  "avaliacoes": 27,
+  "recursos": [
+    "Leitura de Excel e Google Sheets",
+    "Processamento em lote",
+    "Exportação para JSON, CSV e PDF",
+    "Agendamento de tarefas",
+    "Notificações por e-mail e webhook",
+    "Validação automática de dados",
+    "Interface web de configuração",
+    "Histórico de processamentos"
+  ]
+}

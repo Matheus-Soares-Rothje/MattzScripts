@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produto – Matt'z Scripts</title>
+  <meta name="description" content="Detalhes do produto." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236D4AFF'/><text y='24' x='6' font-size='20' font-weight='900' fill='white' font-family='Arial'>M</text></svg>" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--purple); }
+    .breadcrumb span { color: var(--text-primary); }
+    .product-title { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .guarantee-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 10px;
+      font-size: 12px;
+      color: #10B981;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .related-section { margin-top: 36px; }
+    .loading-state {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .loading-spinner {
+      width: 24px;
+      height: 24px;
+      border: 3px solid var(--border-light);
+      border-top-color: var(--purple);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <button class="icon-btn hamburger" id="hamburger-btn" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">M</div>
+      <span class="logo-text">Matt'z <span>scripts</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="catalogo.html?filter=popular">Mais Vendidos</a></li>
+      <li><a href="catalogo.html?filter=lancamento">Lançamentos</a></li>
+      <li><a href="index.html#suporte">Suporte</a></li>
+    </ul>
+    <div class="navbar-search">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="navbar-search" placeholder="Buscar scripts..." autocomplete="off" />
+      </div>
+    </div>
+    <div class="navbar-actions">
+      <button class="icon-btn" id="theme-toggle" title="Alternar tema">☀️</button>
+      <button class="icon-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="navbar-logo">
+          <div class="logo-icon">M</div>
+          <span class="logo-text">Matt'z <span>scripts</span></span>
+        </a>
+        <button class="mobile-close-btn" id="mobile-menu-close">✕</button>
+      </div>
+      <div class="sidebar-section-title">Navegação</div>
+      <a href="index.html" class="sidebar-item">🏠 Início</a>
+      <a href="catalogo.html" class="sidebar-item">📦 Catálogo</a>
+      <a href="catalogo.html?filter=popular" class="sidebar-item">🔥 Mais Vendidos</a>
+      <a href="catalogo.html?filter=lancamento" class="sidebar-item">🚀 Lançamentos</a>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="main-content" style="display:block;">
+      <main class="content-area" style="max-width:1100px;margin:0 auto;">
+        <div id="product-loading" class="loading-state">
+          <div class="loading-spinner"></div>
+          Carregando produto...
+        </div>
+        <div id="product-content" style="display:none;">
+
+          <!-- BREADCRUMB -->
+          <div class="breadcrumb">
+            <a href="index.html">Início</a>
+            <span>›</span>
+            <a href="catalogo.html">Catálogo</a>
+            <span>›</span>
+            <a href="#" id="bc-category"></a>
+            <span>›</span>
+            <span id="bc-name"></span>
+          </div>
+
+          <!-- PRODUCT HERO -->
+          <div class="product-hero">
+            <div>
+              <div class="product-img-wrap" id="product-img">
+                <span id="product-img-icon" style="font-size:80px">📦</span>
+              </div>
+            </div>
+            <div class="product-sidebar-card glass">
+              <div class="product-category-badge" id="product-category-badge">📦 Outros</div>
+              <h1 class="product-title" id="product-name">...</h1>
+              <div class="product-rating-row">
+                <span class="stars" id="product-stars">★★★★★</span>
+                <span class="rating-num" id="product-rating">5.0</span>
+                <span class="rating-count" id="product-reviews">(0 avaliações)</span>
+              </div>
+              <div class="product-price-big" id="product-price">
+                <span>R$</span> 0,00
+              </div>
+              <div class="guarantee-badge">
+                ✅ Compra 100% segura via Kiwify
+              </div>
+              <a href="#" id="buy-btn" target="_blank" class="btn-buy-big">
+                🛒 Comprar no Kiwify ↗
+              </a>
+              <div class="product-features">
+                <h4>Inclui</h4>
+                <div class="feature-item">Acesso imediato após pagamento</div>
+                <div class="feature-item">Atualizações incluídas</div>
+                <div class="feature-item">Suporte por e-mail e Discord</div>
+                <div class="feature-item">Documentação completa</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DESCRIPTION -->
+          <div class="product-info-section reveal" style="margin-bottom:20px;">
+            <h3>Descrição do Produto</h3>
+            <p id="product-description">...</p>
+          </div>
+
+          <!-- FEATURES -->
+          <div class="product-info-section reveal" id="features-section">
+            <h3>Recursos</h3>
+            <div id="product-recursos" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px;"></div>
+          </div>
+
+          <!-- RELATED -->
+          <div class="related-section reveal">
+            <div class="section-header">
+              <div>
+                <h2>Scripts Relacionados</h2>
+                <p>Outros produtos da mesma categoria.</p>
+              </div>
+              <a href="catalogo.html" class="view-all">Ver todos →</a>
+            </div>
+            <div class="products-grid" id="related-grid"></div>
+          </div>
+        </div>
+
+        <div id="product-error" style="display:none;" class="empty-state">
+          <div class="empty-icon">😕</div>
+          <h3>Produto não encontrado</h3>
+          <p>O produto que você procura não existe ou foi removido.</p>
+          <a href="catalogo.html" class="btn-primary" style="margin-top:20px;display:inline-flex;">← Voltar ao Catálogo</a>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="mobile-bottom-nav">
+    <div class="mobile-nav-items">
+      <a href="index.html" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        Início
+      </a>
+      <a href="catalogo.html" class="mobile-nav-item active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Catálogo
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Favoritos
+      </a>
+      <a href="index.html#suporte" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+        Suporte
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Conta
+      </a>
+    </div>
+  </nav>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(location.search);
+      const id = params.get('id');
+
+      if (!id) {
+        document.getElementById('product-loading').style.display = 'none';
+        document.getElementById('product-error').style.display = 'block';
+        return;
+      }
+
+      const product = await ProductLoader.loadProduct(id);
+
+      if (!product) {
+        document.getElementById('product-loading').style.display = 'none';
+        document.getElementById('product-error').style.display = 'block';
+        return;
+      }
+
+      // Update meta
+      document.title = `${product.nome} – Matt'z Scripts`;
+
+      // Populate
+      const price = parseFloat(product.preco || 0).toFixed(2).replace('.', ',');
+      const stars = '★'.repeat(Math.round(product.avaliacao || 5));
+
+      document.getElementById('bc-name').textContent = product.nome;
+      document.getElementById('bc-category').textContent = product.categoria || 'Outros';
+      document.getElementById('bc-category').href = `catalogo.html?cat=${encodeURIComponent(product.categoria)}`;
+
+      document.getElementById('product-img-icon').textContent = getCatIcon(product.categoria);
+      document.getElementById('product-category-badge').textContent = `${getCatIcon(product.categoria)} ${product.categoria}`;
+      document.getElementById('product-name').textContent = product.nome;
+      document.getElementById('product-stars').textContent = stars;
+      document.getElementById('product-rating').textContent = product.avaliacao;
+      document.getElementById('product-reviews').textContent = `(${product.avaliacoes || 0} avaliações)`;
+      document.getElementById('product-price').innerHTML = `<span>R$</span> ${price}`;
+      document.getElementById('product-description').textContent = product.descricao || 'Sem descrição disponível.';
+
+      const buyBtn = document.getElementById('buy-btn');
+      if (buyBtn && product.link) buyBtn.href = product.link;
+
+      // Recursos
+      const recursosEl = document.getElementById('product-recursos');
+      if (recursosEl && product.recursos?.length) {
+        recursosEl.innerHTML = product.recursos.map(r => `
+          <div class="feature-item" style="background:var(--bg-secondary);padding:10px 14px;border-radius:10px;border:1px solid var(--border-light);">${r}</div>
+        `).join('');
+      } else {
+        document.getElementById('features-section').style.display = 'none';
+      }
+
+      // Related
+      const allProducts = await ProductLoader.loadAll();
+      const related = allProducts.filter(p => p.id !== id && p.categoria === product.categoria).slice(0, 4);
+      const relatedFill = related.length < 4 ? [...related, ...allProducts.filter(p => p.id !== id && !related.find(r => r.id === p.id)).slice(0, 4 - related.length)] : related;
+      
+      const relatedGrid = document.getElementById('related-grid');
+      if (relatedGrid) {
+        relatedGrid.innerHTML = relatedFill.map(p => buildProductCard(p)).join('');
+      }
+
+      document.getElementById('product-loading').style.display = 'none';
+      document.getElementById('product-content').style.display = 'block';
+
+      setupReveal();
+
+      // Navbar search
+      const navSearch = document.getElementById('navbar-search');
+      if (navSearch) {
+        navSearch.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && navSearch.value.trim()) {
+            window.location.href = `catalogo.html?q=${encodeURIComponent(navSearch.value.trim())}`;
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

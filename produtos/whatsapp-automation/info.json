@@ -1,0 +1,25 @@
+{
+  "id": "whatsapp-automation",
+  "nome": "Automação WhatsApp Multi Atendimento",
+  "categoria": "WhatsApp",
+  "descricao": "Plataforma completa de atendimento WhatsApp com múltiplos atendentes, filas inteligentes, chatbot com IA e relatórios detalhados.",
+  "preco": "49.90",
+  "imagem": "thumb.png",
+  "link": "https://pay.kiwify.com.br/exemplo2",
+  "destaque": true,
+  "lancamento": true,
+  "popular": false,
+  "emAlta": false,
+  "avaliacao": 4.8,
+  "avaliacoes": 132,
+  "recursos": [
+    "Múltiplos atendentes simultâneos",
+    "Chatbot com respostas automáticas",
+    "Integração com ChatGPT",
+    "Filas de atendimento inteligentes",
+    "Relatórios e métricas em tempo real",
+    "CRM integrado",
+    "Suporte a mídia e documentos",
+    "API REST para integrações"
+  ]
+}
