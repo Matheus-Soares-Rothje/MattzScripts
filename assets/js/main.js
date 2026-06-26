@@ -84,7 +84,7 @@ function buildProductCard(p, size = 'normal') {
   const price = parseFloat(p.preco || 0).toFixed(2).replace('.', ',');
 
   return `
-    <a href="produto.html?id=${p.id}" class="product-card fade-in">
+    <div class="product-card fade-in" onclick="if(!event.target.closest('.btn-buy')) window.location.href='produto.html?id=${p.id}'" role="link" tabindex="0">
       <div class="card-thumb">
         <div class="card-thumb-placeholder">${getCatIcon(p.categoria)}</div>
         ${badges.length ? `<div class="card-badges">${badges.join('')}</div>` : ''}
@@ -104,7 +104,7 @@ function buildProductCard(p, size = 'normal') {
           </a>
         </div>
       </div>
-    </a>
+    </div>
   `;
 }
 
