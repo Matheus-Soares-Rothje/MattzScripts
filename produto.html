@@ -128,7 +128,7 @@
           <div class="product-hero">
             <div>
               <div class="product-img-wrap" id="product-img">
-                <span id="product-img-icon" style="font-size:80px">📦</span>
+                <div id="product-img-icon" style="width:80px;height:80px;color:var(--purple);opacity:0.85;"></div>
               </div>
             </div>
             <div class="product-sidebar-card glass">
@@ -250,8 +250,8 @@
       document.getElementById('bc-category').textContent = product.categoria || 'Outros';
       document.getElementById('bc-category').href = `catalogo.html?cat=${encodeURIComponent(product.categoria)}`;
 
-      document.getElementById('product-img-icon').textContent = getCatIcon(product.categoria);
-      document.getElementById('product-category-badge').textContent = `${getCatIcon(product.categoria)} ${product.categoria}`;
+      document.getElementById('product-img-icon').innerHTML = getCatIcon(product.categoria);
+      document.getElementById('product-category-badge').textContent = product.categoria;
       document.getElementById('product-name').textContent = product.nome;
       document.getElementById('product-stars').textContent = stars;
       document.getElementById('product-rating').textContent = product.avaliacao;
