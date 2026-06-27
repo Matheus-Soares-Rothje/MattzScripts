@@ -1,0 +1,24 @@
+{
+  "id": "backup-automatico-multicloud",
+  "nome": "Backup Automático Multi-Cloud",
+  "categoria": "banco-de-dados",
+  "categoriaLabel": "Banco de Dados",
+  "icone": "database",
+  "preco": 109.90,
+  "avaliacao": 4.7,
+  "vendas": 164,
+  "destaque": false,
+  "novo": false,
+  "maisVendido": true,
+  "descricaoCurta": "Backups automáticos e criptografados, replicados em múltiplos provedores de nuvem.",
+  "descricao": "Script de backup automático para bancos de dados, com agendamento flexível, criptografia dos arquivos e replicação simultânea em múltiplos provedores de nuvem.",
+  "tags": ["banco de dados", "backup", "cloud"],
+  "recursos": [
+    "Agendamento flexível de backups",
+    "Criptografia dos arquivos gerados",
+    "Replicação simultânea em múltiplos provedores",
+    "Restauração com poucos cliques",
+    "Notificações de sucesso ou falha por e-mail"
+  ],
+  "dataLancamento": "2026-02-05"
+}

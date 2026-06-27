@@ -1,0 +1,24 @@
+{
+  "id": "fluxo-automacao-emails",
+  "nome": "Fluxo de Automação de E-mails",
+  "categoria": "automacao",
+  "categoriaLabel": "Automação",
+  "icone": "workflow",
+  "preco": 99.90,
+  "avaliacao": 4.5,
+  "vendas": 19,
+  "destaque": false,
+  "novo": true,
+  "maisVendido": false,
+  "descricaoCurta": "Sequências automáticas de e-mail marketing acionadas por eventos do usuário.",
+  "descricao": "Sistema de automação de e-mails com gatilhos por evento, segmentação de listas, templates personalizáveis e relatórios de abertura e cliques.",
+  "tags": ["automação", "e-mail marketing"],
+  "recursos": [
+    "Gatilhos automáticos por evento do usuário",
+    "Segmentação de listas de contatos",
+    "Templates de e-mail personalizáveis",
+    "Relatórios de abertura e cliques",
+    "Integração via webhook"
+  ],
+  "dataLancamento": "2026-06-22"
+}

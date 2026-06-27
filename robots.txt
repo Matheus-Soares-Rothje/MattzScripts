@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mattzscripts.github.io/sitemap.xml
+Sitemap: https://seudominio.github.io/sitemap.xml

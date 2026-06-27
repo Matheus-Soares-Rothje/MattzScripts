@@ -1,12 +1,13 @@
-[
-  "discord-bot",
-  "whatsapp-automation",
-  "painel-admin",
-  "telegram-bot",
-  "api-rest",
-  "anti-spam",
-  "leitor-planilhas",
-  "sistema-tickets",
-  "sistema-ranking",
-  "webhook-collector"
-]
+{
+  "produtos": [
+    "bot-moderador-pro",
+    "assistente-ia-atendimento",
+    "disparo-em-massa-whatsapp",
+    "painel-licencas-saas",
+    "bot-tickets-automatizado",
+    "landing-page-saas",
+    "fluxo-automacao-emails",
+    "app-base-delivery",
+    "backup-automatico-multicloud"
+  ]
+}

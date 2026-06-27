@@ -1,0 +1,24 @@
+{
+  "id": "landing-page-saas",
+  "nome": "Landing Page para SaaS",
+  "categoria": "websites",
+  "categoriaLabel": "Websites",
+  "icone": "globe",
+  "preco": 129.90,
+  "avaliacao": 4.9,
+  "vendas": 37,
+  "destaque": false,
+  "novo": true,
+  "maisVendido": false,
+  "descricaoCurta": "Template de landing page otimizado para conversão de produtos SaaS.",
+  "descricao": "Landing page responsiva e otimizada para conversão, com seções de funcionalidades, preços, depoimentos e formulário de captura de leads pronto para integrar com qualquer backend.",
+  "tags": ["website", "landing page", "saas"],
+  "recursos": [
+    "Seções de funcionalidades, preços e depoimentos",
+    "Formulário de captura de leads integrável",
+    "Totalmente responsivo e otimizado para conversão",
+    "Carregamento rápido, sem dependências pesadas",
+    "Fácil personalização de cores e textos"
+  ],
+  "dataLancamento": "2026-06-18"
+}

@@ -1,300 +1,299 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo – Matt'z Scripts</title>
-  <meta name="description" content="Explore todos os scripts disponíveis: Discord, WhatsApp, Bots, APIs, automações e muito mais." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236D4AFF'/><text y='24' x='6' font-size='20' font-weight='900' fill='white' font-family='Arial'>M</text></svg>" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Catálogo de Scripts — ScriptStore</title>
+  <meta name="description" content="Explore o catálogo completo de scripts profissionais. Use a busca e os filtros para encontrar a solução ideal para o seu projeto.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://seudominio.github.io/catalogo.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ScriptStore">
+  <meta property="og:title" content="Catálogo de Scripts — ScriptStore">
+  <meta property="og:description" content="Explore o catálogo completo de scripts profissionais. Use a busca e os filtros para encontrar a solução ideal para o seu projeto.">
+  <meta property="og:image" content="https://seudominio.github.io/assets/img/favicon.svg">
+  <meta property="og:url" content="https://seudominio.github.io/catalogo.html">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catálogo de Scripts — ScriptStore">
+  <meta name="twitter:description" content="Explore o catálogo completo de scripts profissionais. Use a busca e os filtros para encontrar a solução ideal para o seu projeto.">
+  <meta name="twitter:image" content="https://seudominio.github.io/assets/img/favicon.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="alternate icon" href="assets/img/favicon.ico">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <button class="icon-btn hamburger" id="hamburger-btn" aria-label="Menu">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-    <a href="index.html" class="navbar-logo">
-      <div class="logo-icon">M</div>
-      <span class="logo-text">Matt'z <span>scripts</span></span>
-    </a>
-    <ul class="nav-links">
+  <a href="#main-content" class="skip-link">Saltar para o conteúdo principal</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo" aria-label="ScriptStore — página inicial">
+        <i data-lucide="terminal-square" aria-hidden="true"></i>
+        <span>ScriptStore</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="catalogo.html" class="active">Catálogo</a></li>
+          <li><a href="catalogo.html#categorias">Categorias</a></li>
+          <li><a href="index.html#suporte">Suporte</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="search-toggle" type="button" aria-label="Buscar">
+          <i data-lucide="search" aria-hidden="true"></i>
+        </button>
+        <a href="https://chat.whatsapp.com/SEU-LINK-DA-COMUNIDADE" target="_blank" rel="noopener noreferrer" class="icon-btn desktop-only" id="community-link" aria-label="Comunidade no WhatsApp">
+          <i data-lucide="phone" aria-hidden="true"></i>
+        </a>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Alternar tema">
+          <i data-lucide="sun" class="icon-light" aria-hidden="true"></i>
+          <i data-lucide="moon" class="icon-dark" aria-hidden="true"></i>
+        </button>
+        <button class="icon-btn mobile-only" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE MENU ===================== -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile" hidden>
+    <ul>
       <li><a href="index.html">Início</a></li>
-      <li><a href="catalogo.html" id="nav-catalogo">Catálogo</a></li>
-      <li><a href="catalogo.html?filter=popular" id="nav-popular">Mais Vendidos</a></li>
-      <li><a href="catalogo.html?filter=lancamento" id="nav-lancamento">Lançamentos</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="catalogo.html#categorias">Categorias</a></li>
+      <li><a href="https://chat.whatsapp.com/SEU-LINK-DA-COMUNIDADE" target="_blank" rel="noopener noreferrer">Comunidade no WhatsApp</a></li>
       <li><a href="index.html#suporte">Suporte</a></li>
     </ul>
-    <div class="navbar-search">
-      <div class="search-box">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" id="navbar-search" placeholder="Buscar scripts..." autocomplete="off" />
-      </div>
-    </div>
-    <div class="navbar-actions">
-      <button class="icon-btn" id="theme-toggle" title="Alternar tema">☀️</button>
-      <button class="icon-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </button>
-    </div>
   </nav>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
-    <div class="mobile-menu-panel">
-      <div class="mobile-menu-header">
-        <a href="index.html" class="navbar-logo">
-          <div class="logo-icon">M</div>
-          <span class="logo-text">Matt'z <span>scripts</span></span>
-        </a>
-        <button class="mobile-close-btn" id="mobile-menu-close">✕</button>
+  <main id="main-content">
+
+    <!-- ===================== PAGE HEADER ===================== -->
+    <section class="page-header">
+      <div class="container">
+        <p class="eyebrow">Catálogo completo</p>
+        <h1>Todos os scripts em um só lugar</h1>
+        <p class="page-subtitle">Use a busca e os filtros para encontrar exatamente o que você precisa.</p>
       </div>
-      <div class="sidebar-section-title">Categorias</div>
-      <a href="catalogo.html" class="sidebar-item" data-cat=""><span class="cat-icon">⊞</span> Todos os Scripts</a>
-      <a href="catalogo.html?cat=Discord" class="sidebar-item" data-cat="Discord"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="3"/><circle cx="8.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 7l1.2-3h7.6L17 7"/></svg> Discord</a>
-      <a href="catalogo.html?cat=WhatsApp" class="sidebar-item" data-cat="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp</a>
-      <a href="catalogo.html?cat=Bots" class="sidebar-item" data-cat="Bots"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><circle cx="9" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><path d="M12 9V5"/><circle cx="12" cy="3.5" r="1.5"/><path d="M2 13h2M20 13h2"/></svg> Bots</a>
-      <a href="catalogo.html?cat=APIs" class="sidebar-item" data-cat="APIs"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 7 4 12 9 17"/><polyline points="15 7 20 12 15 17"/></svg> APIs</a>
-      <a href="catalogo.html?cat=Automação" class="sidebar-item" data-cat="Automação"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg> Automação</a>
-      <a href="catalogo.html?cat=Painéis" class="sidebar-item" data-cat="Painéis"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Painéis</a>
-      <a href="catalogo.html?cat=Jogos" class="sidebar-item" data-cat="Jogos"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="10" rx="4"/><line x1="6" y1="13" x2="9" y2="13"/><line x1="7.5" y1="11.5" x2="7.5" y2="14.5"/><circle cx="15.5" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1" fill="currentColor" stroke="none"/></svg> Jogos</a>
-    </div>
-  </div>
+    </section>
 
-  <div class="page-wrapper">
-    <div class="main-content">
-      <!-- SIDEBAR -->
-      <aside class="sidebar">
-        <div class="sidebar-section-title">Categorias</div>
-        <a href="#" class="sidebar-item active" data-cat="">
-          <span class="cat-icon">⊞</span> Todos os Scripts
-        </a>
-        <a href="#" class="sidebar-item" data-cat="Discord"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="3"/><circle cx="8.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 7l1.2-3h7.6L17 7"/></svg> Discord</a>
-        <a href="#" class="sidebar-item" data-cat="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp</a>
-        <a href="#" class="sidebar-item" data-cat="Bots"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><circle cx="9" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><path d="M12 9V5"/><circle cx="12" cy="3.5" r="1.5"/><path d="M2 13h2M20 13h2"/></svg> Bots</a>
-        <a href="#" class="sidebar-item" data-cat="APIs"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 7 4 12 9 17"/><polyline points="15 7 20 12 15 17"/></svg> APIs</a>
-        <a href="#" class="sidebar-item" data-cat="Painéis"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Painéis</a>
-        <a href="#" class="sidebar-item" data-cat="Web"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg> Websites</a>
-        <a href="#" class="sidebar-item" data-cat="Jogos"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="10" rx="4"/><line x1="6" y1="13" x2="9" y2="13"/><line x1="7.5" y1="11.5" x2="7.5" y2="14.5"/><circle cx="15.5" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1" fill="currentColor" stroke="none"/></svg> Jogos</a>
-        <a href="#" class="sidebar-item" data-cat="Automação"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg> Automação</a>
-        <a href="#" class="sidebar-item" data-cat="IA"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="9.5" cy="9" r="1.2" fill="currentColor" stroke="none"/><circle cx="14.5" cy="9" r="1.2" fill="currentColor" stroke="none"/><path d="M9 14h6M9 17h4"/></svg> Inteligência Artificial</a>
-        <a href="#" class="sidebar-item" data-cat="Mobile"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg> Mobile</a>
-        <a href="#" class="sidebar-item" data-cat="Utilitários"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Utilitários</a>
-        <a href="#" class="sidebar-item" data-cat="Outros"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg> Outros</a>
+    <!-- ===================== CATALOG LAYOUT (SIDEBAR + CONTEÚDO) ===================== -->
+    <div class="container catalog-layout">
 
-        <div class="sidebar-cta">
-          <h4>Venda seus scripts na Matt'z scripts</h4>
-          <p>Alcance milhares de clientes e aumente suas vendas.</p>
-          <a href="#" class="btn-cta">Quero vender ↗</a>
+      <!-- ===================== SIDEBAR ===================== -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h2>Categorias</h2>
+          <button class="icon-btn mobile-only" id="sidebar-close" type="button" aria-label="Fechar categorias">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
         </div>
+
+        <nav class="sidebar-nav" aria-label="Categorias de produtos">
+          <ul id="sidebar-categories">
+            <li>
+              <a href="#" class="sidebar-link active" data-category="todos" aria-current="true">
+                <i data-lucide="layout-grid" aria-hidden="true"></i>
+                <span>Todos</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="discord">
+                <i data-lucide="message-circle" aria-hidden="true"></i>
+                <span>Discord</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="whatsapp">
+                <i data-lucide="phone" aria-hidden="true"></i>
+                <span>WhatsApp</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="bots">
+                <i data-lucide="bot" aria-hidden="true"></i>
+                <span>Bots</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="paineis">
+                <i data-lucide="layout-dashboard" aria-hidden="true"></i>
+                <span>Painéis</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="websites">
+                <i data-lucide="globe" aria-hidden="true"></i>
+                <span>Websites</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="sistemas">
+                <i data-lucide="server" aria-hidden="true"></i>
+                <span>Sistemas</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="automacao">
+                <i data-lucide="workflow" aria-hidden="true"></i>
+                <span>Automação</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="jogos">
+                <i data-lucide="gamepad-2" aria-hidden="true"></i>
+                <span>Jogos</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="mobile">
+                <i data-lucide="smartphone" aria-hidden="true"></i>
+                <span>Mobile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="ia">
+                <i data-lucide="brain-circuit" aria-hidden="true"></i>
+                <span>IA</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="banco-de-dados">
+                <i data-lucide="database" aria-hidden="true"></i>
+                <span>Banco de Dados</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" data-category="outros">
+                <i data-lucide="package" aria-hidden="true"></i>
+                <span>Outros</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </aside>
 
-      <!-- MAIN -->
-      <main class="content-area">
-        <!-- CATALOG FILTERS -->
-        <div class="catalog-filters">
-          <div class="filter-search search-box" style="flex:1;max-width:320px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="catalog-search" placeholder="Buscar scripts..." autocomplete="off" />
-          </div>
-          <select class="filter-select" id="sort-select">
-            <option value="">Ordenar por</option>
-            <option value="price-asc">Menor preço</option>
-            <option value="price-desc">Maior preço</option>
-            <option value="rating">Melhor avaliação</option>
-            <option value="popular">Mais avaliados</option>
-          </select>
-        </div>
+      <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-        <!-- CATEGORY CHIPS -->
-        <div class="filter-chips">
-          <button class="chip active" data-cat="">Todos</button>
-          <button class="chip" data-cat="Discord"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="3"/><circle cx="8.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 7l1.2-3h7.6L17 7"/></svg> Discord</button>
-          <button class="chip" data-cat="WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp</button>
-          <button class="chip" data-cat="Bots"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><circle cx="9" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><path d="M12 9V5"/><circle cx="12" cy="3.5" r="1.5"/><path d="M2 13h2M20 13h2"/></svg> Bots</button>
-          <button class="chip" data-cat="APIs"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 7 4 12 9 17"/><polyline points="15 7 20 12 15 17"/></svg> APIs</button>
-          <button class="chip" data-cat="Automação"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg> Automação</button>
-          <button class="chip" data-cat="Painéis"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Painéis</button>
-          <button class="chip" data-cat="IA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="9.5" cy="9" r="1.2" fill="currentColor" stroke="none"/><circle cx="14.5" cy="9" r="1.2" fill="currentColor" stroke="none"/><path d="M9 14h6M9 17h4"/></svg> IA</button>
-          <button class="chip" data-cat="Jogos"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="10" rx="4"/><line x1="6" y1="13" x2="9" y2="13"/><line x1="7.5" y1="11.5" x2="7.5" y2="14.5"/><circle cx="15.5" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1" fill="currentColor" stroke="none"/></svg> Jogos</button>
-          <button class="chip" data-cat="Outros"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg> Outros</button>
-        </div>
+      <!-- ===================== CONTEÚDO DO CATÁLOGO ===================== -->
+      <div class="catalog-content">
 
-        <!-- RESULTS COUNT -->
-        <div style="margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;">
-          <span id="results-count" style="font-size:13px;color:var(--text-muted)"></span>
-        </div>
+        <!-- ===================== TOOLBAR ===================== -->
+        <section class="catalog-toolbar">
+          <div class="toolbar-inner">
 
-        <!-- PRODUCTS GRID -->
-        <div class="products-grid" id="catalog-grid">
-          <!-- Skeletons -->
-          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-          <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-        </div>
+            <button class="icon-btn mobile-only" id="sidebar-toggle" type="button" aria-label="Abrir categorias" aria-expanded="false">
+              <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+            </button>
 
-        <footer style="margin-top:40px;border-top:1px solid var(--border-light);padding-top:20px;">
-          <div class="footer-bottom">
-            <p>© 2024 Matt'z Scripts. Todos os direitos reservados.</p>
-          </div>
-        </footer>
-      </main>
-    </div>
-  </div>
-
-  <!-- MOBILE BOTTOM NAV -->
-  <nav class="mobile-bottom-nav">
-    <div class="mobile-nav-items">
-      <a href="index.html" class="mobile-nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-        Início
-      </a>
-      <a href="catalogo.html" class="mobile-nav-item active">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-        Catálogo
-      </a>
-      <a href="#" class="mobile-nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-        Favoritos
-      </a>
-      <a href="index.html#suporte" class="mobile-nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        Suporte
-      </a>
-      <a href="#" class="mobile-nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Conta
-      </a>
-    </div>
-  </nav>
-
-  <script src="assets/js/main.js"></script>
-  <script>
-    let allProducts = [];
-    let activeCategory = '';
-    let activeFilter = '';
-    let searchQuery = '';
-    let sortValue = '';
-
-    function applyFilters() {
-      let filtered = [...allProducts];
-
-      if (activeCategory) {
-        filtered = filtered.filter(p => p.categoria === activeCategory);
-      }
-      if (activeFilter === 'destaque') filtered = filtered.filter(p => p.destaque);
-      if (activeFilter === 'lancamento') filtered = filtered.filter(p => p.lancamento);
-      if (activeFilter === 'popular') filtered = filtered.filter(p => p.popular || p.avaliacao >= 4.7);
-      if (activeFilter === 'alta') filtered = filtered.filter(p => p.emAlta);
-
-      if (searchQuery) {
-        filtered = filtered.filter(p => matchSearch(p, searchQuery));
-      }
-
-      if (sortValue === 'price-asc') filtered.sort((a, b) => parseFloat(a.preco) - parseFloat(b.preco));
-      if (sortValue === 'price-desc') filtered.sort((a, b) => parseFloat(b.preco) - parseFloat(a.preco));
-      if (sortValue === 'rating') filtered.sort((a, b) => (b.avaliacao || 0) - (a.avaliacao || 0));
-      if (sortValue === 'popular') filtered.sort((a, b) => (b.avaliacoes || 0) - (a.avaliacoes || 0));
-
-      const grid = document.getElementById('catalog-grid');
-      const count = document.getElementById('results-count');
-
-      if (count) count.textContent = `${filtered.length} script${filtered.length !== 1 ? 's' : ''} encontrado${filtered.length !== 1 ? 's' : ''}`;
-
-      if (grid) {
-        if (filtered.length === 0) {
-          grid.innerHTML = `
-            <div class="empty-state" style="grid-column:1/-1">
-              <div class="empty-icon">🔍</div>
-              <h3>Nenhum resultado encontrado</h3>
-              <p>Tente outros termos ou categorias.</p>
+            <div class="search-bar">
+              <i data-lucide="search" aria-hidden="true"></i>
+              <input type="search" id="search-input" placeholder="Buscar scripts..." aria-label="Buscar scripts">
             </div>
-          `;
-        } else {
-          grid.innerHTML = filtered.map(p => buildProductCard(p)).join('');
-        }
-      }
-    }
 
-    function setActiveChip(cat) {
-      activeCategory = cat;
-      document.querySelectorAll('.chip').forEach(c => {
-        c.classList.toggle('active', c.dataset.cat === cat);
-      });
-      document.querySelectorAll('.sidebar-item[data-cat]').forEach(s => {
-        s.classList.toggle('active', s.dataset.cat === cat);
-      });
-      applyFilters();
-    }
+            <div class="toolbar-controls">
+              <div class="select-wrapper">
+                <select id="sort-select" aria-label="Ordenar por">
+                  <option value="recentes">Mais recentes</option>
+                  <option value="vendidos">Mais vendidos</option>
+                  <option value="preco-asc">Preço crescente</option>
+                  <option value="preco-desc">Preço decrescente</option>
+                  <option value="avaliacao">Melhor avaliação</option>
+                </select>
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </div>
+            </div>
 
-    document.addEventListener('DOMContentLoaded', async () => {
-      // Read URL params
-      const params = new URLSearchParams(location.search);
-      const urlCat = params.get('cat') || '';
-      const urlFilter = params.get('filter') || '';
-      const urlQ = params.get('q') || '';
+          </div>
+        </section>
 
-      activeCategory = urlCat;
-      activeFilter = urlFilter;
-      searchQuery = urlQ;
+        <!-- ===================== CATALOG GRID ===================== -->
+        <section class="catalog-section">
 
-      if (urlQ) {
-        const si = document.getElementById('catalog-search');
-        if (si) si.value = urlQ;
-      }
+          <p class="results-count" id="results-count" aria-live="polite"></p>
 
-      allProducts = await ProductLoader.loadAll();
+          <div class="products-grid" id="catalog-grid">
+            <!-- Skeletons / produtos serão injetados via JS -->
+          </div>
 
-      // Set chip active
-      document.querySelectorAll('.chip').forEach(chip => {
-        chip.classList.toggle('active', chip.dataset.cat === activeCategory);
-        chip.addEventListener('click', () => {
-          activeFilter = '';
-          setActiveChip(chip.dataset.cat);
-        });
-      });
+          <div id="catalog-sentinel" class="catalog-sentinel" aria-hidden="true"></div>
 
-      document.querySelectorAll('.sidebar-item[data-cat]').forEach(s => {
-        s.classList.toggle('active', s.dataset.cat === activeCategory);
-        s.addEventListener('click', (e) => {
-          e.preventDefault();
-          activeFilter = '';
-          setActiveChip(s.dataset.cat);
-        });
-      });
+          <div class="empty-state" id="empty-state" hidden>
+            <i data-lucide="search-x" aria-hidden="true"></i>
+            <h3>Nenhum resultado encontrado</h3>
+            <p>Tente ajustar os filtros ou usar outros termos de busca.</p>
+          </div>
 
-      const searchInput = document.getElementById('catalog-search');
-      if (searchInput) {
-        searchInput.addEventListener('input', () => {
-          searchQuery = searchInput.value.trim();
-          applyFilters();
-        });
-      }
+        </section>
 
-      const navSearch = document.getElementById('navbar-search');
-      if (navSearch) {
-        if (urlQ) navSearch.value = urlQ;
-        navSearch.addEventListener('input', () => {
-          searchQuery = navSearch.value.trim();
-          if (searchInput) searchInput.value = searchQuery;
-          applyFilters();
-        });
-      }
+      </div>
 
-      const sortSelect = document.getElementById('sort-select');
-      if (sortSelect) {
-        sortSelect.addEventListener('change', () => {
-          sortValue = sortSelect.value;
-          applyFilters();
-        });
-      }
+    </div>
 
-      applyFilters();
-    });
-  </script>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <i data-lucide="terminal-square" aria-hidden="true"></i>
+          <span>ScriptStore</span>
+        </a>
+        <p>Scripts profissionais para acelerar o seu desenvolvimento.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Links do rodapé">
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@scriptstore.dev">contato@scriptstore.dev</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="current-year"></span> ScriptStore. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

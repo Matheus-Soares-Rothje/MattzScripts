@@ -1,398 +1,330 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matt'z Scripts – Scripts que aceleram seus projetos</title>
-  <meta name="description" content="Soluções prontas para Discord, WhatsApp, APIs, automações e muito mais. Scripts profissionais para desenvolvedores." />
-  <meta property="og:title" content="Matt'z Scripts – Scripts profissionais" />
-  <meta property="og:description" content="Compre scripts prontos para Discord, WhatsApp, Bots, APIs e automações." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236D4AFF'/><text y='24' x='6' font-size='20' font-weight='900' fill='white' font-family='Arial'>M</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ScriptStore — Scripts profissionais para desenvolvedores</title>
+  <meta name="description" content="Loja de scripts profissionais. Soluções prontas, testadas e otimizadas para acelerar o seu desenvolvimento.">
+  <meta name="author" content="ScriptStore">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://seudominio.github.io/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ScriptStore">
+  <meta property="og:title" content="ScriptStore — Scripts profissionais para desenvolvedores">
+  <meta property="og:description" content="Loja de scripts profissionais. Soluções prontas, testadas e otimizadas para acelerar o seu desenvolvimento.">
+  <meta property="og:image" content="https://seudominio.github.io/assets/img/favicon.svg">
+  <meta property="og:url" content="https://seudominio.github.io/">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ScriptStore — Scripts profissionais para desenvolvedores">
+  <meta name="twitter:description" content="Loja de scripts profissionais. Soluções prontas, testadas e otimizadas para acelerar o seu desenvolvimento.">
+  <meta name="twitter:image" content="https://seudominio.github.io/assets/img/favicon.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="alternate icon" href="assets/img/favicon.ico">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Dados estruturados (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ScriptStore",
+    "url": "https://seudominio.github.io/",
+    "logo": "https://seudominio.github.io/assets/img/favicon.svg",
+    "description": "Loja de scripts profissionais para Discord, WhatsApp, automação, IA e mais."
+  }
+  </script>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <button class="icon-btn hamburger" id="hamburger-btn" aria-label="Menu">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-    <a href="index.html" class="navbar-logo">
-      <div class="logo-icon">M</div>
-      <span class="logo-text">Matt'z <span>scripts</span></span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Início</a></li>
+  <a href="#main-content" class="skip-link">Saltar para o conteúdo principal</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo" aria-label="ScriptStore — página inicial">
+        <i data-lucide="terminal-square" aria-hidden="true"></i>
+        <span>ScriptStore</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html" class="active">Início</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="catalogo.html#categorias">Categorias</a></li>
+          <li><a href="#suporte">Suporte</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="search-toggle" type="button" aria-label="Buscar">
+          <i data-lucide="search" aria-hidden="true"></i>
+        </button>
+        <a href="https://chat.whatsapp.com/SEU-LINK-DA-COMUNIDADE" target="_blank" rel="noopener noreferrer" class="icon-btn desktop-only" id="community-link" aria-label="Comunidade no WhatsApp">
+          <i data-lucide="phone" aria-hidden="true"></i>
+        </a>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Alternar tema">
+          <i data-lucide="sun" class="icon-light" aria-hidden="true"></i>
+          <i data-lucide="moon" class="icon-dark" aria-hidden="true"></i>
+        </button>
+        <button class="icon-btn mobile-only" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE MENU ===================== -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile" hidden>
+    <ul>
+      <li><a href="index.html">Início</a></li>
       <li><a href="catalogo.html">Catálogo</a></li>
-      <li><a href="catalogo.html?filter=popular">Mais Vendidos</a></li>
-      <li><a href="catalogo.html?filter=lancamento">Lançamentos</a></li>
+      <li><a href="catalogo.html#categorias">Categorias</a></li>
+      <li><a href="https://chat.whatsapp.com/SEU-LINK-DA-COMUNIDADE" target="_blank" rel="noopener noreferrer">Comunidade no WhatsApp</a></li>
       <li><a href="#suporte">Suporte</a></li>
     </ul>
-    <div class="navbar-search">
-      <div class="search-box">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" id="navbar-search" placeholder="Buscar scripts..." autocomplete="off" />
-      </div>
-    </div>
-    <div class="navbar-actions">
-      <button class="icon-btn" id="theme-toggle" title="Alternar tema">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
-      </button>
-      <button class="icon-btn" title="Conta">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </button>
-    </div>
   </nav>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
-    <div class="mobile-menu-panel">
-      <div class="mobile-menu-header">
-        <a href="index.html" class="navbar-logo">
-          <div class="logo-icon">M</div>
-          <span class="logo-text">Matt'z <span>scripts</span></span>
-        </a>
-        <button class="mobile-close-btn" id="mobile-menu-close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-      </div>
-      <div class="sidebar-section-title">Navegação</div>
-      <a href="index.html" class="sidebar-item active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Início</a>
-      <a href="catalogo.html" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Catálogo</a>
-      <a href="catalogo.html?filter=popular" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 17a2.5 2.5 0 0 0 2.5-2.5c0-1.4-.8-2.1-1.5-3-1.5-2-.5-4 .5-5-3 0-6 2.5-6 6.5a5.5 5.5 0 0 0 1 3.5z"/><path d="M14.5 9.5c1 1 1.5 2 1.5 3.5a4 4 0 0 1-8 0"/></svg> Mais Vendidos</a>
-      <a href="catalogo.html?filter=lancamento" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> Lançamentos</a>
-      <div class="sidebar-section-title" style="margin-top:16px">Categorias</div>
-      <a href="catalogo.html?cat=Discord" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="3"/><circle cx="8.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 7l1.2-3h7.6L17 7"/></svg> Discord</a>
-      <a href="catalogo.html?cat=WhatsApp" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp</a>
-      <a href="catalogo.html?cat=Bots" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><circle cx="9" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><path d="M12 9V5"/><circle cx="12" cy="3.5" r="1.5"/><path d="M2 13h2M20 13h2"/></svg> Bots</a>
-      <a href="catalogo.html?cat=APIs" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 7 4 12 9 17"/><polyline points="15 7 20 12 15 17"/></svg> APIs</a>
-      <a href="catalogo.html?cat=Automação" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg> Automação</a>
-      <a href="catalogo.html?cat=Painéis" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Painéis</a>
-      <a href="catalogo.html?cat=Jogos" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="10" rx="4"/><line x1="6" y1="13" x2="9" y2="13"/><line x1="7.5" y1="11.5" x2="7.5" y2="14.5"/><circle cx="15.5" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1" fill="currentColor" stroke="none"/></svg> Jogos</a>
-    </div>
-  </div>
+  <main id="main-content">
 
-  <div class="page-wrapper">
-    <div class="main-content">
-      <!-- SIDEBAR -->
-      <aside class="sidebar">
-        <div class="sidebar-section-title">Categorias</div>
-        <a href="catalogo.html" class="sidebar-item active">
-          <span class="cat-icon">⊞</span> Todos os Scripts
-        </a>
-        <a href="catalogo.html?cat=Discord" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="3"/><circle cx="8.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 7l1.2-3h7.6L17 7"/></svg> Discord</a>
-        <a href="catalogo.html?cat=WhatsApp" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp</a>
-        <a href="catalogo.html?cat=Bots" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><circle cx="9" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><path d="M12 9V5"/><circle cx="12" cy="3.5" r="1.5"/><path d="M2 13h2M20 13h2"/></svg> Bots</a>
-        <a href="catalogo.html?cat=Painéis" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Painéis</a>
-        <a href="catalogo.html?cat=Web" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg> Websites</a>
-        <a href="catalogo.html?cat=Jogos" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="10" rx="4"/><line x1="6" y1="13" x2="9" y2="13"/><line x1="7.5" y1="11.5" x2="7.5" y2="14.5"/><circle cx="15.5" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1" fill="currentColor" stroke="none"/></svg> Jogos</a>
-        <a href="catalogo.html?cat=Automação" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg> Automação</a>
-        <a href="catalogo.html?cat=Jogos" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="10" rx="4"/><line x1="6" y1="13" x2="9" y2="13"/><line x1="7.5" y1="11.5" x2="7.5" y2="14.5"/><circle cx="15.5" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1" fill="currentColor" stroke="none"/></svg> Jogos</a>
-        <a href="catalogo.html?cat=Mobile" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg> Mobile</a>
-        <a href="catalogo.html?cat=IA" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="9.5" cy="9" r="1.2" fill="currentColor" stroke="none"/><circle cx="14.5" cy="9" r="1.2" fill="currentColor" stroke="none"/><path d="M9 14h6M9 17h4"/></svg> Inteligência Artificial</a>
-        <a href="catalogo.html?cat=APIs" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg> Banco de Dados</a>
-        <a href="catalogo.html?cat=Outros" class="sidebar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg> Outros</a>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="container hero-inner">
 
-        <div class="sidebar-cta">
-          <h4>Venda seus scripts na Matt'z scripts</h4>
-          <p>Alcance milhares de clientes e aumente suas vendas.</p>
-          <a href="#" class="btn-cta">Quero vender ↗</a>
-        </div>
-      </aside>
-
-      <!-- MAIN -->
-      <main class="content-area">
-
-        <!-- HERO -->
-        <section class="hero reveal">
-          <div class="hero-bg"></div>
-          <div class="hero-grid"></div>
-          <div class="hero-content">
-            <div class="hero-eyebrow">Código que transforma</div>
-            <h1 class="hero-title">
-              Ideias em código.<br/>
-              Soluções para o <span class="highlight">futuro.</span>
-            </h1>
-            <p class="hero-subtitle">
-              Scripts prontos para elevar seus projetos ao próximo nível.
-            </p>
-            <div class="hero-btns">
-              <a href="catalogo.html" class="btn-primary">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-                Ver catálogo
-              </a>
-              <a href="catalogo.html?filter=popular" class="btn-secondary">
-                Mais vendidos
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 17a2.5 2.5 0 0 0 2.5-2.5c0-1.4-.8-2.1-1.5-3-1.5-2-.5-4 .5-5-3 0-6 2.5-6 6.5a5.5 5.5 0 0 0 1 3.5z"/><path d="M14.5 9.5c1 1 1.5 2 1.5 3.5a4 4 0 0 1-8 0"/></svg>
-              </a>
-            </div>
-          </div>
-          <div class="hero-visual">
-            <div class="hero-icons">
-              <div class="hero-icon-float"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="3"/><circle cx="8.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 7l1.2-3h7.6L17 7"/></svg></div>
-              <div class="hero-icon-float"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-              <div class="hero-icon-float"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div>
-              <div class="hero-icon-float"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><circle cx="9" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><path d="M12 9V5"/><circle cx="12" cy="3.5" r="1.5"/><path d="M2 13h2M20 13h2"/></svg></div>
-              <div class="hero-icon-float"><code>&lt;/&gt;</code></div>
-            </div>
-          </div>
-        </section>
-
-        <!-- BENEFITS -->
-        <section class="benefits-bar reveal">
-          <div class="benefit-item">
-            <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-            <div class="benefit-text">
-              <h4>Compra segura</h4>
-              <p>Seus dados protegidos do início ao fim.</p>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
-            <div class="benefit-text">
-              <h4>Acesso imediato</h4>
-              <p>Receba seu script automaticamente.</p>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-icon"><code>&lt;/&gt;</code></div>
-            <div class="benefit-text">
-              <h4>Qualidade garantida</h4>
-              <p>Scripts testados e validados.</p>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
-            <div class="benefit-text">
-              <h4>Suporte dedicado</h4>
-              <p>Nossa equipe está pronta para te ajudar.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- DESTAQUES -->
-        <section class="reveal">
-          <div class="section-header">
-            <div>
-              <h2>Destaques</h2>
-              <p>Os scripts mais populares da semana.</p>
-            </div>
-            <a href="catalogo.html?filter=destaque" class="view-all">Ver todos →</a>
-          </div>
-          <div class="carousel-container">
-            <button class="carousel-btn carousel-btn-prev" id="dest-prev">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
-            </button>
-            <div class="carousel-track" id="destaques-track">
-              <!-- Skeleton -->
-              <div class="skeleton-card" style="flex:0 0 220px"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-              <div class="skeleton-card" style="flex:0 0 220px"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-              <div class="skeleton-card" style="flex:0 0 220px"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-              <div class="skeleton-card" style="flex:0 0 220px"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-            </div>
-            <button class="carousel-btn carousel-btn-next" id="dest-next">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
-            </button>
-          </div>
-        </section>
-
-        <!-- LANÇAMENTOS -->
-        <section class="reveal">
-          <div class="section-header">
-            <div>
-              <h2>Novos Lançamentos</h2>
-              <p>Scripts novos e atualizados regularmente.</p>
-            </div>
-            <a href="catalogo.html?filter=lancamento" class="view-all">Ver todos →</a>
-          </div>
-          <div class="products-grid" id="lancamentos-grid">
-            <!-- Skeleton -->
-            <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-            <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-            <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-            <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-            <div class="skeleton-card"><div class="skeleton-thumb skeleton"></div><div class="skeleton-body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div></div>
-          </div>
-        </section>
-
-        <!-- MAIS VENDIDOS -->
-        <section class="reveal">
-          <div class="section-header">
-            <div>
-              <h2>Mais Vendidos</h2>
-              <p>Os favoritos da nossa comunidade.</p>
-            </div>
-            <a href="catalogo.html?filter=popular" class="view-all">Ver todos →</a>
-          </div>
-          <div class="bestsellers-list" id="bestsellers-list">
-            <!-- skeletons -->
-          </div>
-        </section>
-
-        <!-- NEWSLETTER -->
-        <section class="newsletter-section reveal" id="suporte">
-          <div class="newsletter-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 7 12 13 22 7"/></svg></div>
-          <div class="newsletter-text">
-            <h3>Fique por dentro das novidades</h3>
-            <p>Receba lançamentos, promoções e conteúdos exclusivos.</p>
-          </div>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Seu melhor e-mail" required />
-            <button type="submit" class="btn-primary">Inscrever-se</button>
-          </form>
-        </section>
-
-        <!-- FOOTER -->
-        <footer>
-          <div class="footer-grid">
-            <div class="footer-brand">
-              <div class="logo-wrap">
-                <div class="logo-icon">M</div>
-                <span class="logo-text">Matt'z <span style="color:var(--purple)">scripts</span></span>
-              </div>
-              <p>O seu catálogo de scripts prontos para transformar projetos em soluções incríveis.</p>
-              <div class="social-links">
-                <a href="#" class="social-link" title="Discord"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="3"/><circle cx="8.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 7l1.2-3h7.6L17 7"/></svg></a>
-                <a href="#" class="social-link" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-                <a href="#" class="social-link" title="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 5.8a8.5 8.5 0 0 1-2.36.9 4.1 4.1 0 0 0-7 3.7v1A9.9 9.9 0 0 1 3 7.5s-3.5 7.5 4 10.5a11 11 0 0 1-6.5 1.8c7.5 4.3 16.5 0 16.5-9.5 0-.3 0-.6-.06-.9A6 6 0 0 0 22 5.8z"/></svg></a>
-                <a href="#" class="social-link" title="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2-.2 4.5-1 4.5-4.5a3.4 3.4 0 0 0-1-2.5 3.2 3.2 0 0 0-.1-2.5s-1-.3-3 1a10.4 10.4 0 0 0-6 0c-2-1.4-3-1-3-1a3.2 3.2 0 0 0-.1 2.5 3.4 3.4 0 0 0-1 2.5c0 3.5 2.5 4.3 4.5 4.5-.6.6-.6 1.2-.5 2V21"/></svg></a>
-              </div>
-            </div>
-            <div class="footer-col">
-              <h4>Navegação</h4>
-              <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="catalogo.html">Catálogo</a></li>
-                <li><a href="catalogo.html?filter=popular">Mais Vendidos</a></li>
-                <li><a href="catalogo.html?filter=lancamento">Lançamentos</a></li>
-                <li><a href="#suporte">Suporte</a></li>
-                <li><a href="catalogo.html">Ver todos</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Categorias</h4>
-              <ul>
-                <li><a href="catalogo.html?cat=Discord">Discord</a></li>
-                <li><a href="catalogo.html?cat=WhatsApp">WhatsApp</a></li>
-                <li><a href="catalogo.html?cat=Bots">Bots</a></li>
-                <li><a href="catalogo.html?cat=Painéis">Painéis</a></li>
-                <li><a href="catalogo.html?cat=Automação">Automação</a></li>
-                <li><a href="catalogo.html?cat=Outros">Utilitários</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Informações</h4>
-              <ul>
-                <li><a href="#">Como funciona</a></li>
-                <li><a href="#">Política de Privacidade</a></li>
-                <li><a href="#">Termos de Uso</a></li>
-                <li><a href="#">Garantia</a></li>
-                <li><a href="#">Suporte</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Suporte</h4>
-              <ul>
-                <li><a href="#">Central de Ajuda</a></li>
-                <li><a href="#">Abrir Ticket</a></li>
-                <li><a href="#">Discord Oficial</a></li>
-                <li><a href="#">E-mail</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="footer-bottom">
-            <p>© 2024 Matt'z Scripts. Todos os direitos reservados.</p>
-            <p style="color:var(--text-muted);font-size:12px;display:flex;align-items:center;gap:5px;">Feito com <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--purple)" stroke="none"><path d="M12 21s-7.5-4.5-10-9.5C.5 7.5 3 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21 4 23.5 7.5 22 11.5 19.5 16.5 12 21 12 21z"/></svg> para desenvolvedores</p>
-          </div>
-        </footer>
-      </main>
-    </div>
-  </div>
-
-  <!-- MOBILE BOTTOM NAV -->
-  <nav class="mobile-bottom-nav">
-    <div class="mobile-nav-items">
-      <a href="index.html" class="mobile-nav-item active">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
-        Início
-      </a>
-      <a href="catalogo.html" class="mobile-nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-        Catálogo
-      </a>
-      <a href="#" class="mobile-nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-        Favoritos
-      </a>
-      <a href="#suporte" class="mobile-nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        Suporte
-      </a>
-      <a href="#" class="mobile-nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Conta
-      </a>
-    </div>
-  </nav>
-
-  <script src="assets/js/main.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      const products = await ProductLoader.loadAll();
-
-      // Destaques carousel
-      const destTrack = document.getElementById('destaques-track');
-      const destaques = products.filter(p => p.destaque || p.popular || p.emAlta);
-      if (destTrack) {
-        destTrack.innerHTML = destaques.map(p => buildProductCard(p)).join('');
-        setupCarousel('destaques-track', 'dest-prev', 'dest-next');
-      }
-
-      // Lançamentos grid
-      const lancGrid = document.getElementById('lancamentos-grid');
-      const lancamentos = products.filter(p => p.lancamento);
-      if (lancGrid) {
-        lancGrid.innerHTML = lancamentos.length
-          ? lancamentos.map(p => buildProductCard(p)).join('')
-          : products.slice(0, 5).map(p => buildProductCard(p)).join('');
-      }
-
-      // Bestsellers
-      const bsList = document.getElementById('bestsellers-list');
-      if (bsList) {
-        const sorted = [...products].sort((a, b) => (b.avaliacoes || 0) - (a.avaliacoes || 0)).slice(0, 5);
-        bsList.innerHTML = sorted.map((p, i) => {
-          const price = parseFloat(p.preco || 0).toFixed(2).replace('.', ',');
-          return `
-            <a href="produto.html?id=${p.id}" class="bestseller-item fade-in">
-              <div class="bs-rank">${i + 1}</div>
-              <div class="bs-thumb">${getCatIcon(p.categoria)}</div>
-              <div class="bs-info">
-                <div class="bs-name">${p.nome}</div>
-                <div class="bs-cat">${p.categoria}</div>
-              </div>
-              <div class="bs-meta">
-                <div class="bs-price">R$ ${price}</div>
-                <div class="bs-rating">★ ${p.avaliacao}</div>
-              </div>
+        <div class="hero-content">
+          <p class="eyebrow anim-fade-in-up">Scripts prontos para produção</p>
+          <h1 class="anim-fade-in-up delay-1">
+            Ideias em código.<br>
+            Soluções para o futuro.
+          </h1>
+          <p class="hero-subtitle anim-fade-in-up delay-2">
+            Scripts profissionais, testados e documentados para Discord, WhatsApp,
+            automação e muito mais — prontos para acelerar o seu projeto hoje.
+          </p>
+          <div class="hero-actions anim-fade-in-up delay-3">
+            <a href="catalogo.html" class="btn btn-primary">
+              Ver catálogo
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
             </a>
-          `;
-        }).join('');
-      }
+            <a href="#mais-vendidos" class="btn btn-secondary">
+              <i data-lucide="flame" aria-hidden="true"></i>
+              Mais vendidos
+            </a>
+          </div>
+        </div>
 
-      // Navbar search
-      const navSearch = document.getElementById('navbar-search');
-      if (navSearch) {
-        navSearch.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' && navSearch.value.trim()) {
-            window.location.href = `catalogo.html?q=${encodeURIComponent(navSearch.value.trim())}`;
-          }
-        });
-      }
+        <div class="hero-illustration anim-fade-in delay-2" aria-hidden="true">
 
-      setupReveal();
-    });
-  </script>
+          <div class="hero-glow"></div>
+
+          <!-- Cartão de código -->
+          <div class="float-card card-code">
+            <div class="card-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="code-line"><span class="code-key">const</span> <span class="code-var">script</span> = <span class="code-fn">init</span>();</div>
+            <div class="code-line"><span class="code-key">await</span> script.<span class="code-fn">run</span>();</div>
+            <div class="code-line code-comment">// pronto para produção</div>
+            <div class="code-line"><span class="code-key">export default</span> script;</div>
+          </div>
+
+          <!-- Discord -->
+          <div class="float-card card-icon card-discord">
+            <i data-lucide="message-circle" aria-hidden="true"></i>
+            <span>Discord</span>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="float-card card-icon card-whatsapp">
+            <i data-lucide="phone" aria-hidden="true"></i>
+            <span>WhatsApp</span>
+          </div>
+
+          <!-- IA -->
+          <div class="float-card card-icon card-ai">
+            <i data-lucide="brain-circuit" aria-hidden="true"></i>
+            <span>IA</span>
+          </div>
+
+          <!-- Terminal -->
+          <div class="float-card card-terminal">
+            <div class="terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
+            <div class="terminal-body">
+              <p><span class="prompt">$</span> npm run deploy</p>
+              <p class="terminal-success"><i data-lucide="check" aria-hidden="true"></i> build concluído</p>
+              <p class="terminal-cursor"><span class="prompt">$</span> <span class="cursor-blink">&nbsp;</span></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== BENEFÍCIOS ===================== -->
+    <section class="section" id="beneficios">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>Benefícios</h2>
+          <p>Por que desenvolvedores escolhem a ScriptStore</p>
+        </header>
+
+        <div class="features-grid">
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+            </div>
+            <h3>Código verificado</h3>
+            <p>Todos os scripts passam por revisão técnica antes da publicação.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <i data-lucide="zap" aria-hidden="true"></i>
+            </div>
+            <h3>Entrega instantânea</h3>
+            <p>Acesso imediato ao código-fonte após a aquisição.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <i data-lucide="life-buoy" aria-hidden="true"></i>
+            </div>
+            <h3>Suporte dedicado</h3>
+            <p>Equipe disponível para ajudar na implementação.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <i data-lucide="refresh-cw" aria-hidden="true"></i>
+            </div>
+            <h3>Atualizações contínuas</h3>
+            <p>Receba melhorias e correções sem custo adicional.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DESTAQUES ===================== -->
+    <section class="section section-muted" id="destaques">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>Produtos em destaque</h2>
+          <p>Os scripts mais utilizados pela comunidade</p>
+        </header>
+
+        <div class="products-grid" id="featured-products">
+          <!-- Produtos renderizados dinamicamente via fetch() -->
+        </div>
+
+        <div class="section-footer">
+          <a href="catalogo.html" class="btn btn-secondary">
+            Ver catálogo completo
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NOVOS LANÇAMENTOS ===================== -->
+    <section class="section" id="lancamentos">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>Novos lançamentos</h2>
+          <p>Acabaram de chegar ao catálogo</p>
+        </header>
+
+        <div class="products-grid" id="new-products">
+          <!-- Produtos renderizados dinamicamente via fetch() -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MAIS VENDIDOS ===================== -->
+    <section class="section section-muted" id="mais-vendidos">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>Mais vendidos</h2>
+          <p>Os scripts favoritos da comunidade</p>
+        </header>
+
+        <div class="products-grid" id="bestseller-products">
+          <!-- Produtos renderizados dinamicamente via fetch() -->
+        </div>
+
+        <div class="section-footer">
+          <a href="catalogo.html?sort=populares" class="btn btn-secondary">
+            Ver todos os mais vendidos
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer" id="suporte">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <i data-lucide="terminal-square" aria-hidden="true"></i>
+          <span>ScriptStore</span>
+        </a>
+        <p>Scripts profissionais para acelerar o seu desenvolvimento.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Links do rodapé">
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@scriptstore.dev">contato@scriptstore.dev</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="current-year"></span> ScriptStore. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

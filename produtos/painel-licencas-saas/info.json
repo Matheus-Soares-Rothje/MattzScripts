@@ -1,0 +1,24 @@
+{
+  "id": "painel-licencas-saas",
+  "nome": "Painel de Licenças SaaS",
+  "categoria": "sistemas",
+  "categoriaLabel": "Sistemas",
+  "icone": "server",
+  "preco": 199.90,
+  "avaliacao": 4.7,
+  "vendas": 156,
+  "destaque": true,
+  "novo": false,
+  "maisVendido": false,
+  "descricaoCurta": "Sistema completo de gestão e validação de licenças para produtos de software.",
+  "descricao": "Painel administrativo para geração, validação e revogação de licenças de software, com API própria para integração, controle de expiração e dashboard de métricas de uso.",
+  "tags": ["sistemas", "saas", "licenciamento"],
+  "recursos": [
+    "Geração e validação de licenças via API",
+    "Controle de expiração e renovação automática",
+    "Revogação instantânea de licenças",
+    "Dashboard de métricas de uso",
+    "Suporte a múltiplos planos e produtos"
+  ],
+  "dataLancamento": "2026-04-02"
+}

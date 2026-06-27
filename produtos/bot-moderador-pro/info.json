@@ -1,0 +1,24 @@
+{
+  "id": "bot-moderador-pro",
+  "nome": "Bot Moderador Pro",
+  "categoria": "discord",
+  "categoriaLabel": "Discord",
+  "icone": "message-circle",
+  "preco": 89.90,
+  "avaliacao": 4.9,
+  "vendas": 312,
+  "destaque": true,
+  "novo": false,
+  "maisVendido": true,
+  "descricaoCurta": "Moderação automática completa para servidores Discord, com filtros de spam, anti-link e sistema de avisos.",
+  "descricao": "Bot completo de moderação para Discord, com automod configurável, sistema de avisos progressivos, anti-spam, anti-link e logs detalhados de todas as ações realizadas no servidor.",
+  "tags": ["discord", "moderação", "automod", "bot"],
+  "recursos": [
+    "Automod configurável por palavras e padrões",
+    "Sistema de avisos progressivos (warn, mute, ban)",
+    "Proteção anti-spam e anti-link",
+    "Logs detalhados de todas as ações de moderação",
+    "Painel de configuração via comandos slash"
+  ],
+  "dataLancamento": "2026-03-12"
+}

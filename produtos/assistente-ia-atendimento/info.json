@@ -1,0 +1,24 @@
+{
+  "id": "assistente-ia-atendimento",
+  "nome": "Assistente IA para Atendimento",
+  "categoria": "ia",
+  "categoriaLabel": "IA",
+  "icone": "brain-circuit",
+  "preco": 149.90,
+  "avaliacao": 5.0,
+  "vendas": 198,
+  "destaque": true,
+  "novo": false,
+  "maisVendido": true,
+  "descricaoCurta": "Atendimento automatizado com inteligência artificial, treinável com sua própria base de conhecimento.",
+  "descricao": "Assistente de atendimento ao cliente baseado em IA, capaz de responder perguntas frequentes, qualificar leads e escalar conversas complexas para um humano, treinado a partir da sua própria base de conhecimento.",
+  "tags": ["ia", "atendimento", "chatbot"],
+  "recursos": [
+    "Treinável com sua própria base de conhecimento",
+    "Qualificação automática de leads",
+    "Escalonamento inteligente para atendente humano",
+    "Integração via API com qualquer canal",
+    "Relatórios de conversas e satisfação"
+  ],
+  "dataLancamento": "2026-02-20"
+}

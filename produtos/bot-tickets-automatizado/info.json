@@ -1,0 +1,24 @@
+{
+  "id": "bot-tickets-automatizado",
+  "nome": "Bot de Tickets Automatizado",
+  "categoria": "bots",
+  "categoriaLabel": "Bots",
+  "icone": "bot",
+  "preco": 79.90,
+  "avaliacao": 4.6,
+  "vendas": 42,
+  "destaque": false,
+  "novo": true,
+  "maisVendido": false,
+  "descricaoCurta": "Abertura e gerenciamento de tickets de suporte direto no Discord.",
+  "descricao": "Bot de tickets para Discord com categorização automática, painel de controle para a equipe de suporte e fechamento automático de tickets inativos.",
+  "tags": ["discord", "suporte", "tickets"],
+  "recursos": [
+    "Categorização automática de tickets",
+    "Painel de controle para a equipe de suporte",
+    "Fechamento automático de tickets inativos",
+    "Histórico completo de atendimentos",
+    "Notificações em tempo real"
+  ],
+  "dataLancamento": "2026-06-10"
+}

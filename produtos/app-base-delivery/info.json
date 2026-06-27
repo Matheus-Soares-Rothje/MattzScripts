@@ -1,0 +1,24 @@
+{
+  "id": "app-base-delivery",
+  "nome": "App Base para Delivery",
+  "categoria": "mobile",
+  "categoriaLabel": "Mobile",
+  "icone": "smartphone",
+  "preco": 249.90,
+  "avaliacao": 4.8,
+  "vendas": 28,
+  "destaque": false,
+  "novo": true,
+  "maisVendido": false,
+  "descricaoCurta": "Base completa para aplicativos de delivery, com pedidos, pagamento e rastreamento.",
+  "descricao": "Aplicativo mobile base para serviços de delivery, com catálogo de produtos, carrinho, integração de pagamento e rastreamento de pedido em tempo real.",
+  "tags": ["mobile", "delivery", "app"],
+  "recursos": [
+    "Catálogo de produtos com busca e categorias",
+    "Carrinho de compras e checkout simplificado",
+    "Integração com gateways de pagamento",
+    "Rastreamento de pedido em tempo real",
+    "Painel administrativo para o estabelecimento"
+  ],
+  "dataLancamento": "2026-06-24"
+}

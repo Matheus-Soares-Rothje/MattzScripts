@@ -1,0 +1,24 @@
+{
+  "id": "disparo-em-massa-whatsapp",
+  "nome": "Disparo em Massa Inteligente",
+  "categoria": "whatsapp",
+  "categoriaLabel": "WhatsApp",
+  "icone": "phone",
+  "preco": 119.90,
+  "avaliacao": 4.8,
+  "vendas": 427,
+  "destaque": true,
+  "novo": false,
+  "maisVendido": true,
+  "descricaoCurta": "Envio de mensagens em massa via WhatsApp com intervalos inteligentes e controle de bloqueios.",
+  "descricao": "Sistema de disparo em massa para WhatsApp com controle de velocidade, intervalos inteligentes entre envios, suporte a variáveis personalizadas e relatórios de entrega em tempo real.",
+  "tags": ["whatsapp", "marketing", "automação"],
+  "recursos": [
+    "Intervalos inteligentes entre envios",
+    "Controle de velocidade para evitar bloqueios",
+    "Suporte a variáveis personalizadas por contato",
+    "Relatórios de entrega em tempo real",
+    "Importação de listas via CSV"
+  ],
+  "dataLancamento": "2026-01-15"
+}

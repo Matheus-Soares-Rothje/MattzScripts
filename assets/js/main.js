@@ -1,219 +1,700 @@
-/* ===========================
-   Matt'z Scripts - Main JS
-   =========================== */
+/* =========================================================
+   SCRIPTSTORE — JAVASCRIPT PRINCIPAL
+   Tema persistente, menu mobile, busca instantânea, sistema
+   de produtos via fetch(), skeleton loading, scroll reveal
+   com Intersection Observer e lazy loading do catálogo.
+   ========================================================= */
 
-// ===== THEME =====
-const ThemeManager = {
-  init() {
-    const saved = localStorage.getItem('mattz-theme') || 'dark';
-    this.apply(saved);
-  },
-  apply(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('mattz-theme', theme);
-    const btn = document.getElementById('theme-toggle');
-    if (btn) btn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
-  },
-  toggle() {
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
-    this.apply(current === 'dark' ? 'light' : 'dark');
+document.addEventListener("DOMContentLoaded", () => {
+  initTheme();
+  initIcons();
+  setCurrentYear();
+  initSidebarToggle();
+  initMobileMenu();
+  initSearchShortcuts();
+  initScrollReveal();
+  renderSkeletons();
+  initApp();
+});
+
+async function initApp() {
+  const products = await fetchAllProducts();
+
+  renderHomeSections(products);
+  initCatalogControls(products);
+  initProductPage(products);
+}
+
+/* =========================================================
+   SISTEMA DE PRODUTOS
+   Carrega produtos/index.json e busca automaticamente o
+   info.json de cada produto listado. Sem backend: tudo via
+   fetch() de arquivos estáticos. O resultado é reutilizado
+   pela Home, pelo Catálogo e pela Página de Produto.
+   ========================================================= */
+
+async function fetchAllProducts() {
+  try {
+    const indexRes = await fetch("produtos/index.json");
+    if (!indexRes.ok) throw new Error("Não foi possível carregar produtos/index.json");
+    const { produtos: slugs } = await indexRes.json();
+
+    const requests = slugs.map((slug) =>
+      fetch(`produtos/${slug}/info.json`)
+        .then((res) => {
+          if (!res.ok) throw new Error(`Falha ao carregar produto: ${slug}`);
+          return res.json();
+        })
+        .catch((err) => {
+          console.error(err);
+          return null;
+        })
+    );
+
+    return (await Promise.all(requests)).filter(Boolean);
+  } catch (error) {
+    console.error("Erro ao carregar o catálogo de produtos:", error);
+    return [];
   }
+}
+
+/* Estado do catálogo — filtros ativos (apenas na página catalogo.html) */
+const catalogState = {
+  products: [],
+  searchTerm: "",
+  category: "todos",
+  sortBy: "recentes",
+  visibleCount: 8
 };
 
-// ===== PRODUCT LOADER =====
-const ProductLoader = {
-  cache: {},
-  async loadIndex() {
-    try {
-      const r = await fetch('produtos/index.json');
-      return await r.json();
-    } catch (e) {
-      console.error('Erro ao carregar index de produtos:', e);
-      return [];
-    }
-  },
-  async loadProduct(id) {
-    if (this.cache[id]) return this.cache[id];
-    try {
-      const r = await fetch(`produtos/${id}/info.json`);
-      const data = await r.json();
-      data.id = id;
-      this.cache[id] = data;
-      return data;
-    } catch (e) {
-      console.error(`Erro ao carregar produto ${id}:`, e);
-      return null;
-    }
-  },
-  async loadAll() {
-    const ids = await this.loadIndex();
-    const promises = ids.map(id => this.loadProduct(id));
-    const results = await Promise.all(promises);
-    return results.filter(Boolean);
-  }
-};
+const CATALOG_PAGE_SIZE = 8;
 
-// ===== CATEGORY ICONS (SVG) =====
-const categoryIcons = {
-  'Discord': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="3"/><circle cx="8.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="13.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 7l1.2-3h7.6L17 7"/></svg>',
-  'WhatsApp': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
-  'Bots': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><circle cx="9" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><path d="M12 9V5"/><circle cx="12" cy="3.5" r="1.5"/><path d="M2 13h2M20 13h2"/></svg>',
-  'APIs': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 7 4 12 9 17"/><polyline points="15 7 20 12 15 17"/></svg>',
-  'Automação': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
-  'Painéis': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>',
-  'IA': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="9.5" cy="9" r="1.2" fill="currentColor" stroke="none"/><circle cx="14.5" cy="9" r="1.2" fill="currentColor" stroke="none"/><path d="M9 14h6M9 17h4"/></svg>',
-  'Web': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg>',
-  'Jogos': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="10" rx="4"/><line x1="6" y1="13" x2="9" y2="13"/><line x1="7.5" y1="11.5" x2="7.5" y2="14.5"/><circle cx="15.5" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1" fill="currentColor" stroke="none"/></svg>',
-  'Mobile': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>',
-  'Utilitários': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
-  'Outros': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>'
-};
+/* =========================================================
+   TEMA — ESCURO / CLARO
+   Persistência via localStorage. Aplica o atributo
+   data-theme na <html>, consumido por todas as variáveis
+   CSS do design system. Ícones de sol/lua são alternados
+   nos botões de tema do header e da bottom navigation.
+   ========================================================= */
 
-function getCatIcon(cat) {
-  return categoryIcons[cat] || categoryIcons['Outros'];
+const THEME_STORAGE_KEY = "scriptstore-theme";
+
+function initTheme() {
+  const stored = localStorage.getItem(THEME_STORAGE_KEY);
+  const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+  const theme = stored || (prefersLight ? "light" : "dark");
+
+  applyTheme(theme);
+
+  document.getElementById("theme-toggle")?.addEventListener("click", toggleTheme);
 }
 
-// ===== CARD BUILDER =====
-function buildProductCard(p, size = 'normal') {
-  const badges = [];
-  if (p.destaque) badges.push('<span class="badge badge-destaque">Mais Vendido</span>');
-  if (p.lancamento) badges.push('<span class="badge badge-lancamento">Lançamento</span>');
-  if (p.popular) badges.push('<span class="badge badge-popular">Popular</span>');
-  if (p.emAlta) badges.push('<span class="badge badge-alta">Em Alta</span>');
-
-  const stars = '★'.repeat(Math.round(p.avaliacao || 5));
-  const price = parseFloat(p.preco || 0).toFixed(2).replace('.', ',');
-
-  return `
-    <div class="product-card fade-in" onclick="if(!event.target.closest('.btn-buy')) window.location.href='produto.html?id=${p.id}'" role="link" tabindex="0">
-      <div class="card-thumb">
-        <div class="card-thumb-placeholder">${getCatIcon(p.categoria)}</div>
-        ${badges.length ? `<div class="card-badges">${badges.join('')}</div>` : ''}
-      </div>
-      <div class="card-body">
-        <div class="card-category">${p.categoria || 'Outros'}</div>
-        <div class="card-name">${p.nome}</div>
-        <div class="card-rating">
-          <span class="stars">${stars}</span>
-          <span class="rating-num">${p.avaliacao}</span>
-          <span class="rating-count">(${p.avaliacoes || 0})</span>
-        </div>
-        <div class="card-footer">
-          <div class="card-price"><span>R$</span> ${price}</div>
-          <a href="${p.link || '#'}" target="_blank" class="btn-buy" onclick="event.stopPropagation()">
-            Ver no Kiwify ↗
-          </a>
-        </div>
-      </div>
-    </div>
-  `;
+function toggleTheme() {
+  const current = document.documentElement.getAttribute("data-theme") || "dark";
+  const next = current === "dark" ? "light" : "dark";
+  applyTheme(next);
+  localStorage.setItem(THEME_STORAGE_KEY, next);
 }
 
-function buildSkeletonCard() {
-  return `
-    <div class="skeleton-card">
-      <div class="skeleton-thumb skeleton"></div>
-      <div class="skeleton-body">
-        <div class="skeleton-line w-40"></div>
-        <div class="skeleton-line w-80"></div>
-        <div class="skeleton-line w-60"></div>
-      </div>
-    </div>
-  `;
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
 }
 
-// ===== INTERSECTION OBSERVER (reveal on scroll) =====
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revealObserver.unobserve(e.target);
-    }
+/* ---------- RENDERIZAÇÃO — HOME ---------- */
+function renderHomeSections(products) {
+  renderGrid("featured-products", products.filter((p) => p.destaque).slice(0, 4));
+  renderGrid("new-products", products.filter((p) => p.novo).slice(0, 4));
+  renderGrid("bestseller-products", products.filter((p) => p.maisVendido).slice(0, 4));
+}
+
+/* =========================================================
+   CATÁLOGO — BUSCA, FILTRO DE CATEGORIA E ORDENAÇÃO
+   Tudo processado no cliente, em cima dos produtos já
+   carregados via fetch(). Sem requisições adicionais.
+   ========================================================= */
+
+function initCatalogControls(products) {
+  const grid = document.getElementById("catalog-grid");
+  if (!grid) return; // controles só existem na página de catálogo
+
+  catalogState.products = products;
+
+  const searchInput = document.getElementById("search-input");
+  const sortSelect = document.getElementById("sort-select");
+  const categoryLinks = document.querySelectorAll(".sidebar-link[data-category]");
+
+  searchInput?.addEventListener("input", (e) => {
+    catalogState.searchTerm = e.target.value.trim().toLowerCase();
+    catalogState.visibleCount = CATALOG_PAGE_SIZE;
+    applyCatalogFilters();
   });
-}, { threshold: 0.08 });
 
-function setupReveal() {
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-}
-
-// ===== CAROUSEL =====
-function setupCarousel(trackId, prevId, nextId) {
-  const track = document.getElementById(trackId);
-  const prev = document.getElementById(prevId);
-  const next = document.getElementById(nextId);
-  if (!track) return;
-
-  const scroll = () => {
-    const card = track.querySelector('.product-card');
-    return card ? card.offsetWidth + 16 : 240;
-  };
-
-  if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -scroll() * 2, behavior: 'smooth' }));
-  if (next) next.addEventListener('click', () => track.scrollBy({ left: scroll() * 2, behavior: 'smooth' }));
-}
-
-// ===== MOBILE MENU =====
-function setupMobileMenu() {
-  const overlay = document.getElementById('mobile-menu-overlay');
-  const openBtn = document.getElementById('hamburger-btn');
-  const closeBtn = document.getElementById('mobile-menu-close');
-
-  if (openBtn) openBtn.addEventListener('click', () => overlay?.classList.add('open'));
-  if (closeBtn) closeBtn.addEventListener('click', () => overlay?.classList.remove('open'));
-  if (overlay) overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) overlay.classList.remove('open');
+  sortSelect?.addEventListener("change", (e) => {
+    catalogState.sortBy = e.target.value;
+    catalogState.visibleCount = CATALOG_PAGE_SIZE;
+    applyCatalogFilters();
   });
-}
 
-// ===== TOAST =====
-function showToast(msg) {
-  const existing = document.querySelector('.toast');
-  if (existing) existing.remove();
-  const el = document.createElement('div');
-  el.className = 'toast';
-  el.textContent = msg;
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), 3000);
-}
-
-// ===== SEARCH UTILS =====
-function matchSearch(p, query) {
-  const q = query.toLowerCase();
-  return (
-    p.nome?.toLowerCase().includes(q) ||
-    p.categoria?.toLowerCase().includes(q) ||
-    p.descricao?.toLowerCase().includes(q)
-  );
-}
-
-// ===== MARK ACTIVE NAV =====
-function markActiveNav() {
-  const page = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .mobile-nav-item').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href && (href === page || (page === '' && href === 'index.html'))) {
-      a.classList.add('active');
-    }
-  });
-}
-
-// ===== INIT COMMON =====
-document.addEventListener('DOMContentLoaded', () => {
-  ThemeManager.init();
-
-  const themeBtn = document.getElementById('theme-toggle');
-  if (themeBtn) themeBtn.addEventListener('click', () => ThemeManager.toggle());
-
-  setupMobileMenu();
-  markActiveNav();
-  setupReveal();
-
-  // Newsletter mock
-  document.querySelectorAll('.newsletter-form').forEach(form => {
-    form.addEventListener('submit', (e) => {
+  categoryLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
       e.preventDefault();
-      showToast('✅ Você foi inscrito com sucesso!');
-      form.reset();
+      catalogState.category = link.dataset.category;
+      catalogState.visibleCount = CATALOG_PAGE_SIZE;
+
+      categoryLinks.forEach((l) => {
+        l.classList.remove("active");
+        l.removeAttribute("aria-current");
+      });
+      link.classList.add("active");
+      link.setAttribute("aria-current", "true");
+
+      applyCatalogFilters();
+      closeSidebarOnMobile();
     });
   });
-});
+
+  initLazyLoadSentinel();
+  applyCatalogFilters();
+}
+
+function applyCatalogFilters() {
+  const { products, searchTerm, category, sortBy, visibleCount } = catalogState;
+
+  let result = products.filter((product) => {
+    const matchesCategory = category === "todos" || product.categoria === category;
+    const matchesSearch =
+      !searchTerm ||
+      product.nome.toLowerCase().includes(searchTerm) ||
+      product.categoriaLabel.toLowerCase().includes(searchTerm) ||
+      (product.tags || []).some((tag) => tag.toLowerCase().includes(searchTerm));
+
+    return matchesCategory && matchesSearch;
+  });
+
+  result = sortProducts(result, sortBy);
+
+  catalogState.filteredTotal = result.length;
+  renderCatalog(result.slice(0, visibleCount));
+
+  const sentinel = document.getElementById("catalog-sentinel");
+  if (sentinel) {
+    sentinel.hidden = visibleCount >= result.length;
+  }
+}
+
+/* ---------- LAZY LOADING — CARREGAMENTO PROGRESSIVO ---------- */
+function initLazyLoadSentinel() {
+  const sentinel = document.getElementById("catalog-sentinel");
+  if (!sentinel || !("IntersectionObserver" in window)) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          catalogState.visibleCount += CATALOG_PAGE_SIZE;
+          applyCatalogFilters();
+        }
+      });
+    },
+    { rootMargin: "200px" }
+  );
+
+  observer.observe(sentinel);
+}
+
+function sortProducts(products, sortBy) {
+  const sorted = [...products];
+
+  switch (sortBy) {
+    case "vendidos":
+      return sorted.sort((a, b) => b.vendas - a.vendas);
+    case "preco-asc":
+      return sorted.sort((a, b) => a.preco - b.preco);
+    case "preco-desc":
+      return sorted.sort((a, b) => b.preco - a.preco);
+    case "avaliacao":
+      return sorted.sort((a, b) => b.avaliacao - a.avaliacao);
+    case "recentes":
+    default:
+      return sorted.sort((a, b) => new Date(b.dataLancamento) - new Date(a.dataLancamento));
+  }
+}
+
+/* ---------- RENDERIZAÇÃO — CATÁLOGO ---------- */
+function renderCatalog(products) {
+  const grid = document.getElementById("catalog-grid");
+  if (!grid) return;
+
+  renderGrid("catalog-grid", products);
+  updateResultsCount(catalogState.filteredTotal ?? products.length);
+
+  const emptyState = document.getElementById("empty-state");
+  if (emptyState) {
+    emptyState.hidden = (catalogState.filteredTotal ?? products.length) > 0;
+  }
+}
+
+function updateResultsCount(total) {
+  const el = document.getElementById("results-count");
+  if (!el) return;
+  el.textContent = total === 1 ? "1 produto encontrado" : `${total} produtos encontrados`;
+}
+
+/* ---------- RENDERIZAÇÃO GENÉRICA DE GRID ---------- */
+function renderGrid(containerId, products) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container.removeAttribute("data-state");
+  container.innerHTML = products.map(buildProductCardHTML).join("");
+  initIcons();
+  observeReveals();
+}
+
+/* ---------- CARD DE PRODUTO ---------- */
+function buildProductCardHTML(product) {
+  const {
+    id,
+    nome,
+    categoriaLabel,
+    categoria,
+    icone,
+    preco,
+    avaliacao,
+    vendas,
+    destaque,
+    novo,
+    maisVendido
+  } = product;
+
+  return `
+    <article class="product-card reveal">
+      ${buildBadgeHTML({ destaque, novo, maisVendido })}
+      <div class="product-thumb thumb-${categoria}">
+        <i data-lucide="${icone}" aria-hidden="true"></i>
+      </div>
+      <div class="product-body">
+        <span class="product-category">${categoriaLabel}</span>
+        <h3 class="product-title">${nome}</h3>
+        <div class="product-meta">
+          <span class="product-rating"><i data-lucide="star" aria-hidden="true"></i>${avaliacao.toFixed(1)}</span>
+          <span class="product-sales">${vendas} vendas</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">${formatPrice(preco)}</span>
+          <a href="produto.html?id=${encodeURIComponent(id)}" class="btn-mini">Ver</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function buildBadgeHTML({ destaque, novo, maisVendido }) {
+  if (novo) {
+    return `<span class="product-badge badge-new">Novo</span>`;
+  }
+  if (destaque) {
+    return `<span class="product-badge badge-featured">Destaque</span>`;
+  }
+  if (maisVendido) {
+    return `<span class="product-badge badge-bestseller"><i data-lucide="flame" aria-hidden="true"></i>Top</span>`;
+  }
+  return "";
+}
+
+function formatPrice(value) {
+  return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+/* =========================================================
+   PÁGINA DE PRODUTO
+   Lê o parâmetro "id" da URL (ex: produto.html?id=discord-bot),
+   localiza o produto correspondente entre os já carregados via
+   fetch() e renderiza todo o conteúdo dinamicamente: imagem,
+   nome, descrição, recursos, categoria, avaliação, preço,
+   botão de compra, SEO/OG/Twitter e produtos relacionados.
+   ========================================================= */
+
+function initProductPage(products) {
+  const detailGrid = document.getElementById("product-detail-grid");
+  if (!detailGrid) return; // só executa em produto.html
+
+  const id = new URLSearchParams(window.location.search).get("id");
+  const product = products.find((p) => p.id === id);
+
+  if (!product) {
+    renderProductNotFound(detailGrid);
+    return;
+  }
+
+  renderProductDetail(product);
+  renderProductSEO(product);
+  renderRelatedProducts(product, products);
+  initIcons();
+}
+
+function renderProductNotFound(container) {
+  container.innerHTML = `
+    <div class="product-not-found">
+      <i data-lucide="search-x" aria-hidden="true"></i>
+      <h1>Produto não encontrado</h1>
+      <p>O script que você procura não existe ou foi removido do catálogo.</p>
+      <a href="catalogo.html" class="btn btn-primary">
+        Voltar ao catálogo
+        <i data-lucide="arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  `;
+
+  setText("page-title", "Produto não encontrado — ScriptStore");
+
+  const robotsMeta = document.querySelector('meta[name="robots"]');
+  robotsMeta?.setAttribute("content", "noindex, follow");
+
+  initIcons();
+}
+
+function renderProductDetail(product) {
+  const {
+    nome,
+    categoriaLabel,
+    categoria,
+    icone,
+    preco,
+    avaliacao,
+    vendas,
+    descricaoCurta,
+    descricao,
+    recursos = []
+  } = product;
+
+  const container = document.getElementById("product-detail-grid");
+  container.innerHTML = `
+    <div class="product-gallery">
+      <div class="product-image thumb-${categoria}">
+        <i data-lucide="${icone}" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="product-info">
+      <span class="product-category-tag">
+        <i data-lucide="${icone}" aria-hidden="true"></i>
+        ${categoriaLabel}
+      </span>
+
+      <h1>${nome}</h1>
+
+      <div class="product-rating-row">
+        <span class="product-rating product-rating-lg">
+          <i data-lucide="star" aria-hidden="true"></i>${avaliacao.toFixed(1)}
+        </span>
+        <span class="product-sales">${vendas} vendas</span>
+      </div>
+
+      <p class="product-description">${descricaoCurta}</p>
+
+      ${recursos.length ? `
+        <div class="product-features">
+          <h3>Recursos inclusos</h3>
+          <ul>
+            ${recursos.map((item) => `
+              <li>
+                <i data-lucide="check-circle-2" aria-hidden="true"></i>
+                <span>${item}</span>
+              </li>
+            `).join("")}
+          </ul>
+        </div>
+      ` : ""}
+
+      ${descricao ? `<p class="product-long-description">${descricao}</p>` : ""}
+
+      <div class="product-buy-box">
+        <span class="product-price product-price-lg">${formatPrice(preco)}</span>
+        <button type="button" class="btn btn-primary btn-buy">
+          <i data-lucide="shopping-cart" aria-hidden="true"></i>
+          Comprar agora
+        </button>
+      </div>
+    </div>
+  `;
+
+  const breadcrumbCurrent = document.getElementById("breadcrumb-current");
+  if (breadcrumbCurrent) breadcrumbCurrent.textContent = nome;
+}
+
+function renderRelatedProducts(product, allProducts) {
+  const related = allProducts
+    .filter((p) => p.categoria === product.categoria && p.id !== product.id)
+    .slice(0, 4);
+
+  const relatedSection = document.getElementById("related-section");
+  const container = document.getElementById("related-products");
+  if (!container) return;
+
+  if (related.length === 0) {
+    if (relatedSection) relatedSection.hidden = true;
+    return;
+  }
+
+  container.innerHTML = related.map(buildProductCardHTML).join("");
+}
+
+function renderProductSEO(product) {
+  const { nome, descricaoCurta, id, preco, avaliacao, categoriaLabel } = product;
+  const title = `${nome} — ScriptStore`;
+  const url = `https://seudominio.github.io/produto.html?id=${encodeURIComponent(id)}`;
+
+  setText("page-title", title);
+  setAttr("meta-description", "content", descricaoCurta);
+  setAttr("canonical-link", "href", url);
+
+  setAttr("og-title", "content", title);
+  setAttr("og-description", "content", descricaoCurta);
+  setAttr("og-url", "content", url);
+
+  setAttr("twitter-title", "content", title);
+  setAttr("twitter-description", "content", descricaoCurta);
+
+  const jsonLd = document.getElementById("product-jsonld");
+  if (jsonLd) {
+    jsonLd.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: nome,
+      description: descricaoCurta,
+      category: categoriaLabel,
+      url,
+      offers: {
+        "@type": "Offer",
+        price: preco.toFixed(2),
+        priceCurrency: "BRL",
+        availability: "https://schema.org/InStock"
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: avaliacao,
+        bestRating: "5"
+      }
+    });
+  }
+}
+
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = value;
+}
+
+function setAttr(id, attr, value) {
+  const el = document.getElementById(id);
+  if (el) el.setAttribute(attr, value);
+}
+
+/* Abre/fecha a sidebar de categorias em telas mobile.
+   Apenas controle de visibilidade — sem lógica de filtragem. */
+function initSidebarToggle() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebar-overlay");
+  const openBtn = document.getElementById("sidebar-toggle");
+  const closeBtn = document.getElementById("sidebar-close");
+
+  if (!sidebar || !overlay || !openBtn) return;
+
+  openBtn.addEventListener("click", openSidebarMobile);
+  closeBtn?.addEventListener("click", closeSidebarOnMobile);
+  overlay.addEventListener("click", closeSidebarOnMobile);
+}
+
+function openSidebarMobile() {
+  document.getElementById("sidebar")?.classList.add("is-open");
+  document.getElementById("sidebar-overlay")?.classList.add("is-visible");
+  document.getElementById("sidebar-toggle")?.setAttribute("aria-expanded", "true");
+}
+
+function closeSidebarOnMobile() {
+  document.getElementById("sidebar")?.classList.remove("is-open");
+  document.getElementById("sidebar-overlay")?.classList.remove("is-visible");
+  document.getElementById("sidebar-toggle")?.setAttribute("aria-expanded", "false");
+}
+
+/* =========================================================
+   MENU MOBILE
+   Abre/fecha o menu de navegação em telas pequenas a partir
+   do botão hamburger do header. Fecha ao clicar em um link,
+   ao clicar fora ou ao pressionar Escape.
+   ========================================================= */
+
+function initMobileMenu() {
+  const toggleBtn = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  if (!toggleBtn || !menu) return;
+
+  const openMenu = () => {
+    menu.hidden = false;
+    requestAnimationFrame(() => menu.classList.add("is-open"));
+    toggleBtn.setAttribute("aria-expanded", "true");
+  };
+
+  const closeMenu = () => {
+    menu.classList.remove("is-open");
+    toggleBtn.setAttribute("aria-expanded", "false");
+    window.setTimeout(() => {
+      menu.hidden = true;
+    }, 250);
+  };
+
+  const toggleMenu = () => {
+    const isOpen = toggleBtn.getAttribute("aria-expanded") === "true";
+    isOpen ? closeMenu() : openMenu();
+  };
+
+  toggleBtn.addEventListener("click", toggleMenu);
+
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (e) => {
+    const isOpen = toggleBtn.getAttribute("aria-expanded") === "true";
+    if (isOpen && !menu.contains(e.target) && !toggleBtn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && toggleBtn.getAttribute("aria-expanded") === "true") {
+      closeMenu();
+    }
+  });
+}
+
+/* =========================================================
+   BUSCA INSTANTÂNEA — ATALHO GLOBAL
+   O ícone de busca do header leva o usuário até o campo de
+   busca do catálogo (ou navega até ele) e o foca imediatamente.
+   A filtragem em si acontece em tempo real dentro de
+   initCatalogControls(), a cada caractere digitado.
+   ========================================================= */
+
+function initSearchShortcuts() {
+  document.getElementById("search-toggle")?.addEventListener("click", goToSearch);
+}
+
+function goToSearch() {
+  const input = document.getElementById("search-input");
+
+  if (input) {
+    input.scrollIntoView({ behavior: "smooth", block: "center" });
+    input.focus();
+    return;
+  }
+
+  window.location.href = "catalogo.html";
+}
+
+/* =========================================================
+   SCROLL REVEAL + INTERSECTION OBSERVER
+   Qualquer elemento com a classe "reveal" inicia levemente
+   deslocado e transparente (definido em CSS) e recebe a
+   classe "is-visible" assim que entra na viewport, disparando
+   uma transição suave. Reutilizado tanto para o conteúdo
+   estático das páginas quanto para os cards renderizados
+   dinamicamente após cada fetch().
+   ========================================================= */
+
+let revealObserver = null;
+
+function initScrollReveal() {
+  if (!("IntersectionObserver" in window)) {
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  observeReveals();
+}
+
+function observeReveals() {
+  if (!revealObserver) return;
+  document.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => {
+    revealObserver.observe(el);
+  });
+}
+
+/* =========================================================
+   SKELETON LOADING
+   Exibido imediatamente ao carregar a página, antes que o
+   fetch() dos produtos seja concluído. É substituído pelo
+   conteúdo real assim que os dados chegam (ver renderGrid
+   e renderProductDetail), sem alterar a estrutura do layout.
+   ========================================================= */
+
+function renderSkeletons() {
+  ["featured-products", "new-products", "bestseller-products", "catalog-grid"].forEach((id) => {
+    const container = document.getElementById(id);
+    if (container) {
+      container.innerHTML = buildSkeletonCardHTML().repeat(4);
+    }
+  });
+
+  const detailGrid = document.getElementById("product-detail-grid");
+  if (detailGrid) {
+    detailGrid.innerHTML = buildSkeletonDetailHTML();
+  }
+}
+
+function buildSkeletonCardHTML() {
+  return `
+    <article class="product-card skeleton-card" aria-hidden="true">
+      <div class="skeleton-thumb"></div>
+      <div class="product-body">
+        <div class="skeleton-line skeleton-line-xs"></div>
+        <div class="skeleton-line skeleton-line-lg"></div>
+        <div class="skeleton-line skeleton-line-sm"></div>
+        <div class="skeleton-line skeleton-line-md"></div>
+      </div>
+    </article>
+  `;
+}
+
+function buildSkeletonDetailHTML() {
+  return `
+    <div class="product-gallery">
+      <div class="skeleton-thumb skeleton-image"></div>
+    </div>
+    <div class="product-info">
+      <div class="skeleton-line skeleton-line-xs" style="width:120px;"></div>
+      <div class="skeleton-line skeleton-line-lg" style="width:70%; height:32px;"></div>
+      <div class="skeleton-line skeleton-line-sm" style="width:40%;"></div>
+      <div class="skeleton-line skeleton-line-md"></div>
+      <div class="skeleton-line skeleton-line-md"></div>
+      <div class="skeleton-line skeleton-line-md" style="width:60%;"></div>
+    </div>
+  `;
+}
+
+/* Inicializa os ícones Lucide presentes na página */
+function initIcons() {
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
+/* Atualiza o ano exibido no rodapé */
+function setCurrentYear() {
+  const yearEl = document.getElementById("current-year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+}
